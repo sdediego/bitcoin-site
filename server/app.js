@@ -6,7 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const debug = require('debug')('bitcoin-project:'+ path.basename(__filename));
+const debug = require('debug')('server:'+ path.basename(__filename));
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
@@ -15,14 +15,9 @@ const cors = require('cors');
 const app = express();
 
 require('./config/db.config')(mongoose);
-require('./config/passport.config').setup(passport);
 const corsConfig = require('./config/cors.config');
 
-//const index = require('./routes/index');
-//const users = require('./routes/users');
-const indexRoutes = require('./routes/index.route')
-const authRoutes = require('./routes/auth.route');
-const userRoutes = require('./routes/user.route');
+const indexRoutes = require('./routes/index.routes');
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
@@ -48,15 +43,12 @@ app.use(session({
     maxAge: 30 * 24 * 60 * 60 * 1000
   }
 }));
+
+require('./config/passport.config').setup(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRoutes);
-app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
-
-//app.use('/', index);
-//app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
