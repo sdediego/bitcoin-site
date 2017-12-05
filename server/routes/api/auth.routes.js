@@ -8,5 +8,6 @@ router.post('/signup', authController.signup)
 router.post('/login', authController.login);
 router.get('/logout', passportConfig.isAuthenticated, authController.logout);
 router.get('/loggedin', passportConfig.isAuthenticated, authController.isLoggedin);
+router.get('/email-verification/:URL', authController.verifyEmail);
 
 module.exports = router;

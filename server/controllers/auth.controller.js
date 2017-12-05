@@ -77,6 +77,9 @@ module.exports.isLoggedin = (req, res, next) => {
     res.status(200).json(req.user);
     return;
   }
-
   res.status(403).json({ message: 'Unauthorized.' });
+};
+
+module.exports.verifyEmail = (req, res, next) => {
+  
 };
