@@ -7,10 +7,17 @@
 </div>
 <h2>Here are some links to help you start: </h2>
 <ul>
-  <li>
-    <h2><a [routerLink]="['login']">Login</a></h2>
-  </li>
-  <li>
-    <h2><a [routerLink]="['signup']">Sign up</a></h2>
-  </li>
+  <div  *ngIf="!user; else logout ">
+    <li>
+      <h2><a [routerLink]="['login']">Login</a></h2>
+    </li>
+    <li>
+      <h2><a [routerLink]="['signup']">Sign up</a></h2>
+    </li>
+  </div>
+  <div #logout>
+    <li>
+      <h2><a [routerLink]="['logout']">Logout</a></h2>
+    </li>
+  </div>
 </ul>

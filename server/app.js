@@ -34,11 +34,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   secret: process.env.sessionSecret,
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
   cookie: {
-    secure: process.env.cookieSecure,  // https only in production
+    //secure: process.env.cookieSecure,  // https only in production
     httpOnly: true,
     maxAge: 30 * 24 * 60 * 60 * 1000
   }
