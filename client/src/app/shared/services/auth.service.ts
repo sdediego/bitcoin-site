@@ -2,7 +2,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
-import
 
 import { IUser } from './../interfaces/user.interface';
 import { environment } from './../../../environments/environment';
@@ -30,28 +29,28 @@ export class AuthService {
     return this.user;
   }
 
-  signup(user: IUser): Observable<IUser> {
+  signup(user: IUser): Observable<IUser | string> {
     return this.http.post(`${this.baseUrl}/signup`, JSON.stringify(user), this.options)
     .map(res => res.json())
     .map(user => this.handleUser(user))
     .catch(error => this.handleError(error));
   }
 
-  login(user: IUser): Observable<IUser> {
+  login(user: IUser): Observable<IUser | string> {
     return this.http.post(`${this.baseUrl}/login`, JSON.stringify(user), this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(error => this.handleError(error));
   }
 
-  logout(): Observable<string> {
+  logout(): Observable<IUser | string> {
     return this.http.get(`${this.baseUrl}/logout`, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(error => this.handleError(error));
   }
 
-  isLoggedin(): Observable<IUser> {
+  isLoggedin(): Observable<IUser | string> {
     return this.http.get(`${this.baseUrl}/loggedin`, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))

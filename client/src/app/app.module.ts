@@ -12,12 +12,14 @@ import { LoginComponent } from './components/login/login.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { router } from './shared/routes/routes';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
