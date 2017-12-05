@@ -23,7 +23,7 @@ module.exports.signup = (req, res, next) => {
       const newUser = new User({
         username: username,
         email: email,
-        password: password
+        password: hashPass
       });
 
       return newUser.save();
@@ -47,7 +47,7 @@ module.exports.signup = (req, res, next) => {
 module.exports.login = (req, res, next) => {
   passport.authenticate('local', (error, user, failureDetails) => {
     if (error) {
-      res.status(500).json({ message: 'Something went wrong with authentication.' });
+      res.status(500).json({ message: 'Something went wrong with authentication.' + error });
       return;
     }
 

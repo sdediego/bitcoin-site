@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const passportLocal = require('passport-local');
 const LocalStrategy = passportLocal.Strategy;
 const User = require('./../models/user.model');
@@ -17,20 +18,19 @@ module.exports.setup = (passport) => {
     });
   });
 
-  passport.use('local-auth', new LocalStrategy((username, password, next) => {
+  passport.use('local', new LocalStrategy((username, password, next) => {
     User.findOne({ username: username })
       .then(user => {
         if (!user) {
           next(null, false, { message: 'Invalid username or password.' });
           return;
         } else {
-          user.checkPassword(password)
-            .then(match => {
-              next(null, user);
-            })
-            .catch(error => {
-              next(null, false, { message: 'Incorrect password.' });
-            });
+          if (!user.checkPassword(password)) {
+            console.log('Bad password');
+            next(null, false, { message: 'Incorrect password:' + password });
+          }
+          console.log('Good password');
+          next(null, user);
         }
       })
       .catch(error => next(error));
