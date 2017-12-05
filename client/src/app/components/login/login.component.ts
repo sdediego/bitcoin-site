@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { IUser } from './../../shared/interfaces/user.interface';
@@ -11,14 +12,18 @@ import { AuthService } from './../../shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  user: IUser;
+  user: IUser = {
+    username: "",
+    password:""
+  };
   error: string;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
-  onSubmitLogin(loginForm) {
+  onSubmitLogin(loginForm: NgForm): void {
+    console.log(this.user);
     this.authService.login(this.user).subscribe(
       user => {
         loginForm.reset();

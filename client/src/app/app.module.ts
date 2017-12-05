@@ -7,12 +7,13 @@ import { HttpModule } from '@angular/http';
 import './shared/operators/rxjs.operator';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { AuthService } from './shared/services/auth.service';
+import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
-import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeComponent } from './components/home/home.component';
     RouterModule.forRoot(router)
   ],
   providers: [
-    AuthService
+    AuthService,
+    IsLoggedInGuard
   ],
   bootstrap: [AppComponent]
 })
