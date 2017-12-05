@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import * as steemconnect from 'steemconnect';
+
 import { IUser } from './../../shared/interfaces/user.interface';
 import { AuthService } from './../../shared/services/auth.service';
 
@@ -16,11 +18,28 @@ export class LoginComponent implements OnInit {
     username: "",
     password:""
   };
+  url: string;
   error: string;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    steemconnect.init({
+      baseURL: 'https://steemconnect.com',
+      app:'bitcoin-bitacora',
+      callbackURL: 'http://localhost:4200'
+    });
+
+    this.url = steemconnect.getLoginURL();
+
+    steemconnect.isAuthenticated((error, result) => {
+      if (error) {
+        this.error = error;
+      } else {
+        console.log(`Logged in as: ${result}`);
+      }
+    });
+  }
 
   onSubmitLogin(loginForm: NgForm): void {
     console.log(this.user);
