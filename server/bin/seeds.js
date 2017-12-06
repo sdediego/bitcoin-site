@@ -15,6 +15,7 @@ const users = [
 ];
 
 User.collection.drop();
+
 User.create(users, (error, docs) => {
   if (error) {
     throw error;
