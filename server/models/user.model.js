@@ -18,8 +18,18 @@ const userSchema = new Schema({
       type: String,
       required: [true, 'Password field is required']
     },
+    passwordResetToken: {
+      type: String
+    },
+    passwordResetExpire: {
+      type: Date
+    },
     name: {
       type: String,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false
     }
   },
   {

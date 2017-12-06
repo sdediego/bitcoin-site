@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import * as steemconnect from 'steemconnect';
+import * as steemconnect from './../../../../node_modules/steemconnect';
 
 import { IUser } from './../../shared/interfaces/user.interface';
 import { AuthService } from './../../shared/services/auth.service';
