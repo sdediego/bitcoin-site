@@ -2,6 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('./../models/user.model');
+const Category = require('./../models/category.model');
 
 mongoose.connect(process.env.mongoDB, { useMongoClient: true });
 
@@ -14,14 +15,42 @@ const users = [
   }
 ];
 
-User.collection.drop();
 
-User.create(users, (error, docs) => {
+//User.collection.drop();
+//
+//User.create(users, (error, docs) => {
+//  if (error) {
+//    throw error;
+//  }
+//  docs.forEach(user => {
+//    console.log(user.username);
+//  });
+//  mongoose.connection.close();
+//});
+
+const categories = [
+  {
+    category: 'Bitcoin'
+  },
+  {
+    category: 'Blockchain'
+  },
+  {
+    category: 'Economía'
+  },
+  {
+    category: 'Criptodivisas'
+  }
+];
+
+Category.collection.drop();
+
+Category.create(categories, (error, docs) => {
   if (error) {
     throw error;
   }
-  docs.forEach(user => {
-    console.log(user.username);
+  docs.forEach(category => {
+    console.log(category.category);
   });
   mongoose.connection.close();
 });

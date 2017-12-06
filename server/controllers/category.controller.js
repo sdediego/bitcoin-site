@@ -1,7 +1,10 @@
+const path = require('path');
+const debug = require('debug')('server:'+ path.basename(__filename));
 const Category = require('./../models/category.model');
 
 module.exports.category = (req, res, next) => {
-  Category.find({})
+  console.log('Categories controller');
+  Category.find()
     .then(categories => {
       if (!categories) {
         res.status(404).json({ msg: 'No categories listed.' });

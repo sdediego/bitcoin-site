@@ -1,8 +1,7 @@
 const express = require('express');
-const passportConfig = require('./../../config/passport.config');
-const categoryController = require('./../../controllers/category.controller');
 const router = express.Router();
+const categoryController = require('./../../controllers/category.controller');
 
-router.get('/categories', passportConfig.isAuthenticated, categoryController.category);
+router.get('/', categoryController.category);
 
 module.exports = router;
