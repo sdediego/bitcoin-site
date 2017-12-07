@@ -56,7 +56,7 @@ Category.create(categories, (error, docs) => {
   mongoose.connection.close();
 });*/
 
-const threads = [
+/*const threads = [
   {
     author: '5a286fad8cb602300171fca6',
     category: '5a2885f4cbb1144991a38090',
@@ -67,7 +67,7 @@ const threads = [
     author: '5a286f9cf6cb8230b24ac989',
     category: '5a2885f4cbb1144991a38090',
     content: 'Una vez más salta a los titulares el elevado ascenso...',
-    title: 'Mundo burbúja'
+    title: 'Mundo burbuja'
   },
   {
     author: '5a286fad8cb602300171fca6',
@@ -97,6 +97,46 @@ Thread.create(threads, (error, docs) => {
   }
   docs.forEach(thread => {
     console.log(thread._id);
+  });
+  mongoose.connection.close();
+});*/
+
+const replies = [
+  {
+    author: '5a286f9cf6cb8230b24ac989',
+    thread: '5a292e23b61e892cc3ee668f',
+    content: 'Genial articulo. En mi opinion...'
+  },
+  {
+    author: '5a286f9cf6cb8230b24ac989',
+    thread: '5a292e23b61e892cc3ee6693',
+    content: 'Lo cierto es que con tanto cambio cuesta estar al día.'
+  },
+  {
+    author: '5a286f9cf6cb8230b24ac989',
+    thread: '5a292e23b61e892cc3ee6690',
+    content: 'El proceso de monetización al que esta sujeto bitcoin explica...'
+  },
+  {
+    author: '5a286fad8cb602300171fca6',
+    thread: '5a292e23b61e892cc3ee6690',
+    content: 'La volatilidad del bitcoin se ha ido reduciendo a medida que...'
+  },
+  {
+    author: '5a286fad8cb602300171fca6',
+    thread: '5a292e23b61e892cc3ee6693',
+    content: 'En un mercado libre abierto a la competencia cualquiera puede...'
+  }
+];
+
+Reply.collection.drop();
+
+Reply.create(replies, (error, docs) => {
+  if (error) {
+    throw error;
+  }
+  docs.forEach(replies => {
+    console.log(replies._id);
   });
   mongoose.connection.close();
 });

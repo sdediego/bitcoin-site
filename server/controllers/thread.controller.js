@@ -16,7 +16,23 @@ module.exports.thread = (req, res, next) => {
         return;
       }
 
-      res.status(200).json({ thread });
+      Reply.find({ thread: threadId })
+        .populate('author')
+        .exec()
+        .then(replies => {
+          //if (replies.length === 0) {
+          //  res.status(200).json({ thread });
+          //}
+
+          res.status(200).json({ thread, replies });
+        })
+        .catch(error => {
+          res.status(500).json({
+            msg: 'Unable to retrieve thread replies.',
+            thread: thread
+          });
+          return;
+        });
     })
     .catch(error => {
       res.status(500).json({ msg: 'Unable to retrieve requested thread.' });
