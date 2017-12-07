@@ -30,16 +30,16 @@ const users = [
 
 const categories = [
   {
-    category: 'Bitcoin'
+    category: 'bitcoin'
   },
   {
-    category: 'Blockchain'
+    category: 'blockchain'
   },
   {
-    category: 'Economía'
+    category: 'economía'
   },
   {
-    category: 'Criptodivisas'
+    category: 'criptodivisas'
   }
 ];
 
