@@ -22,5 +22,22 @@ module.exports.reply = (req, res, next) => {
 };
 
 module.exports.removeReply = (req, res, next) => {
+  const replyId = req.params.replyId;
 
+  Reply.findByIdAndRemove(replyId)
+    .then(reply => {
+      if (!reply) {
+        res.status(404).json({ msg: 'Reply not found.' });
+        return;
+      }
+
+      res.status(200).json({ msg: 'Reply successfully removed.' });
+    })
+    .catch(error => {
+      res.status(500).json({
+        msg: 'Unable to remove reply.',
+        error: error
+      });
+      return;
+    });
 };
