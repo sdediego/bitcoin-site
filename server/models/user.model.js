@@ -25,11 +25,14 @@ const userSchema = new Schema({
       type: Date
     },
     name: {
-      type: String,
+      type: String
     },
     isVerified: {
       type: Boolean,
       default: false
+    },
+    photoUrl: {
+      type: String
     }
   },
   {

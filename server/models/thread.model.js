@@ -17,6 +17,9 @@ const threadSchema = new Schema({
     content: {
       type: String,
       required: [true, 'Thread content is required.']
+    },
+    bitcoinPrice: {
+      type: Number
     }
   },
   {
