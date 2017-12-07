@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { IUser } from './../interfaces/user.interface';
 import { environment } from './../../../environments/environment';
 
+
 @Injectable()
 export class AuthService {
 
@@ -27,7 +28,7 @@ export class AuthService {
     return this.loginEvent;
   }
 
-  private handleUser(user: IUser): IUser {
+  private emitLoginEvent(user: IUser): IUser {
     this.user = user;
     this.loginEvent.emit(this.user);
     return this.user;
@@ -40,28 +41,28 @@ export class AuthService {
   signup(user: IUser): Observable<IUser | string> {
     return this.http.post(`${this.baseUrl}/signup`, JSON.stringify(user), this.options)
     .map(res => res.json())
-    .map(user => this.handleUser(user))
+    .map(user => this.emitLoginEvent(user))
     .catch(error => this.handleError(error));
   }
 
   login(user: IUser): Observable<IUser | string> {
     return this.http.post(`${this.baseUrl}/login`, JSON.stringify(user), this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitLoginEvent(user))
       .catch(error => this.handleError(error));
   }
 
   logout(): Observable<IUser | string> {
     return this.http.get(`${this.baseUrl}/logout`, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitLoginEvent(user))
       .catch(error => this.handleError(error));
   }
 
   isLoggedIn(): Observable<IUser | string> {
     return this.http.get(`${this.baseUrl}/loggedin`, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitLoginEvent(user))
       .catch(error => this.handleError(error));
   }
 

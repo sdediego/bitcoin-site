@@ -7,6 +7,7 @@ import { SignupComponent } from './../../components/signup/signup.component';
 
 import { IsLoggedInGuard } from './../guards/isLoggedIn.guard';
 
+
 export const router: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'signup', component: SignupComponent, pathMatch: 'full' },
