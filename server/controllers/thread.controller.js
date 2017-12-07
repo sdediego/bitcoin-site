@@ -6,7 +6,7 @@ const Vote = require('./../models/vote.model');
 module.exports.thread = (req, res, next) => {
   const threadId = req.params.id;
 
-  Thread.findById({ _id: threadId })
+  Thread.findById(threadId)
     .populate('author')
     .populate('category')
     .exec()
