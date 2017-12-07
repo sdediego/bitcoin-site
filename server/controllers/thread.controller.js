@@ -20,9 +20,12 @@ module.exports.thread = (req, res, next) => {
         .populate('author', 'username')
         .exec()
         .then(replies => {
-          //if (replies.length === 0) {
-          //  res.status(200).json({ thread });
-          //}
+          if (!replies) {
+            res.status(200).json({
+              msg: 'Unable to retrieve replies for this thread.',
+              thread: thread
+            });
+          }
 
           res.status(200).json({ thread, replies });
         })
@@ -66,7 +69,7 @@ module.exports.newThread = (req, res, next) => {
     });
 };
 
-module.exports.newReply = (req, res, next) => {
+module.exports.reply = (req, res, next) => {
   const newReply = new Reply({
     author: req.user.id,
     thread: req.params.id,
@@ -82,6 +85,22 @@ module.exports.newReply = (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({ msg: 'Unable to save new reply.' });
+      return;
+    });
+};
+
+module.exports.vote = (req, res, next) => {
+  const newVote = new Vote({
+    user: req.user.id,
+    thread: req.params.id
+  });
+
+  newVote.save()
+    .then(() => {
+      res.status(200).json({ msg: 'Vote successfully added.' });
+    })
+    .catch(error => {
+      res.status(500).json({ msg: 'Unable to save new vote.' });
       return;
     });
 };
