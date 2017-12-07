@@ -106,6 +106,7 @@ module.exports.removeThread = (req, res, next) => {
         res.status(403).json({ msg: 'Unallowed to remove this thread.' });
         return;
       } else {
+
         const toRemove = [
           Thread.findByIdAndRemove(threadId),
           Reply.find({ thread: threadId }).remove(),
@@ -143,42 +144,42 @@ module.exports.removeThread = (req, res, next) => {
     });
 };
 
-module.exports.reply = (req, res, next) => {
-  const newReply = new Reply({
-    author: req.user.id,
-    thread: req.params.id,
-    content: req.body.content
-  });
+//module.exports.reply = (req, res, next) => {
+//  const newReply = new Reply({
+//    author: req.user.id,
+//    thread: req.params.id,
+//    content: req.body.content
+//  });
+//
+//  newReply.save()
+//    .then(() => {
+//      res.status(200).json({
+//        msg: 'New reply successfully saved',
+//        newThread: newReply
+//      });
+//    })
+//    .catch(error => {
+//      res.status(500).json({ msg: 'Unable to save new reply.' });
+//      return;
+//    });
+//};
+//
+//module.exports.removeReply = (req, res, next) => {
+//
+//};
 
-  newReply.save()
-    .then(() => {
-      res.status(200).json({
-        msg: 'New reply successfully saved',
-        newThread: newReply
-      });
-    })
-    .catch(error => {
-      res.status(500).json({ msg: 'Unable to save new reply.' });
-      return;
-    });
-};
-
-module.exports.removeReply = (req, res, next) => {
-
-};
-
-module.exports.vote = (req, res, next) => {
-  const newVote = new Vote({
-    user: req.user.id,
-    thread: req.params.id
-  });
-
-  newVote.save()
-    .then(() => {
-      res.status(200).json({ msg: 'Vote successfully added.' });
-    })
-    .catch(error => {
-      res.status(500).json({ msg: 'Unable to save new vote.' });
-      return;
-    });
-};
+//module.exports.vote = (req, res, next) => {
+//  const newVote = new Vote({
+//    user: req.user.id,
+//    thread: req.params.id
+//  });
+//
+//  newVote.save()
+//    .then(() => {
+//      res.status(200).json({ msg: 'Vote successfully added.' });
+//    })
+//    .catch(error => {
+//      res.status(500).json({ msg: 'Unable to save new vote.' });
+//      return;
+//    });
+//};
