@@ -7,8 +7,8 @@ module.exports.thread = (req, res, next) => {
   const threadId = req.params.id;
 
   Thread.findById(threadId)
-    .populate('author')
-    .populate('category')
+    .populate('author', 'username')
+    .populate('category', 'category')
     .exec()
     .then(thread => {
       if (!thread) {
@@ -17,7 +17,7 @@ module.exports.thread = (req, res, next) => {
       }
 
       Reply.find({ thread: threadId })
-        .populate('author')
+        .populate('author', 'username')
         .exec()
         .then(replies => {
           //if (replies.length === 0) {

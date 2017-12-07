@@ -25,8 +25,8 @@ module.exports.category = (req, res, next) => {
   Category.findOne({ category })
     .then(category => {
       Thread.find({ category: category.id })
-        .populate('author')
-        .populate('category')
+        .populate('author', 'username')
+        .populate('category', 'category')
         .exec()
         .then(threads => {
           if (threads.length === 0) {
