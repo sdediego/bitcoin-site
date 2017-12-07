@@ -54,6 +54,7 @@ module.exports.newThread = (req, res, next) => {
         res.status(400).json(newThread);
         return;
       }
+
       res.status(200).json({
         msg: 'New thread successfully saved',
         newThread: newThread
@@ -66,5 +67,21 @@ module.exports.newThread = (req, res, next) => {
 };
 
 module.exports.newReply = (req, res, next) => {
+  const newReply = new Reply({
+    author: req.user.id,
+    thread: req.params.id,
+    content: req.body.content
+  });
 
+  newReply.save()
+    .then(() => {
+      res.status(200).json({
+        msg: 'New reply successfully saved',
+        newThread: newReply
+      });
+    })
+    .catch(error => {
+      res.status(500).json({ msg: 'Unable to save new reply.' });
+      return;
+    });
 };
