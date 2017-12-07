@@ -39,3 +39,32 @@ module.exports.thread = (req, res, next) => {
       return;
     });
 };
+
+module.exports.newThread = (req, res, next) => {
+  const newThread = new Thread({
+    author: req.user.id,
+    category: req.query.category,
+    title: req.body.title,
+    content: req.body.content
+  });
+
+  newThread.save()
+    .then(() => {
+      if (newThread.errors) {
+        res.status(400).json(newThread);
+        return;
+      }
+      res.status(200).json({
+        msg: 'New thread successfully saved',
+        newThread: newThread
+      });
+    })
+    .catch(error => {
+      res.status(500).json({ msg: 'Unable to save new thread.' });
+      return;
+    });
+};
+
+module.exports.newReply = (req, res, next) => {
+
+};
