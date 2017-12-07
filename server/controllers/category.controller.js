@@ -25,10 +25,11 @@ module.exports.category = (req, res, next) => {
   Category.findOne({ category })
     .then(category => {
       Thread.find({ category: category.id })
+        .populate('author')
         .populate('category')
         .exec()
         .then(threads => {
-          if (!threads) {
+          if (threads.length === 0) {
             res.status(404).json({ msg: `No threads for category ${category.category}.` });
             return;
           }
