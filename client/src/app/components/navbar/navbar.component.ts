@@ -17,9 +17,16 @@ export class NavbarComponent implements OnInit {
     this.user = this.authService.getUser();
     this.authService.getLoginEventEmitter().subscribe(user => {
       this.user = user;
+      console.log('constructor Navbar', this.user);
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this.authService.getUser();
+    this.authService.getLoginEventEmitter().subscribe(user => {
+      this.user = user;
+      console.log('On init Navbar', this.user);
+    });
+  }
 
 }

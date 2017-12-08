@@ -7,7 +7,7 @@
 </div>
 <h2>Here are some links to help you start: </h2>
 <ul>
-  <div  *ngIf="!user; else logout ">
+  <div *ngIf="!user">
     <li>
       <h2><a [routerLink]="['login']">Login</a></h2>
     </li>
@@ -15,9 +15,9 @@
       <h2><a [routerLink]="['signup']">Sign up</a></h2>
     </li>
   </div>
-  <div #logout>
+  <div *ngIf="user">
     <li>
-      <h2><a [routerLink]="['logout']">Logout</a></h2>
+      <h2><a [routerLink]="['/']"  (click)="logout()">Logout {{ user?.username }}</a></h2>
     </li>
   </div>
 </ul>
