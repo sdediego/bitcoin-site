@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { IUser } from './../interfaces/user.interface';
 import { ICategory } from './../interfaces/category.interface';
 import { IThread } from './../interfaces/thread.interface';
+import { IReply } from './../interfaces/reply.interface';
 import { environment } from './../../../environments/environment';
 
 
@@ -41,8 +42,26 @@ export class ThreadService {
       .catch((error: Response | any) => this.handleError(error));
   }
 
-  public postNewThread(thread: IThread): Observable<IThread | string> {
+  public postNewThread(thread: IThread): Observable<IThread | any> {
     return this.http.post(`${this.baseUrl}/thread/new`, JSON.stringify(thread), this.options)
+      .map((res: Response) => res.json())
+      .catch((error: Response | any) => this.handleError(error));
+  }
+
+  public removeThread(threadId: string): Observable<IThread | any> {
+    return this.http.get(`${this.baseUrl}/thread/${threadId}/remove`, this.options)
+      .map((res: Response) => res.json())
+      .catch((error: Response | any) => this.handleError(error));
+  }
+
+  public postNewReply(reply: IReply, threadId: string): Observable<IReply | any> {
+    return this.http.post(`${this.baseUrl}/reply/${threadId}`, JSON.stringify(reply), this.options)
+      .map((res: Response) => res.json())
+      .catch((error: Response | any) => this.handleError(error));
+  }
+
+  public removeReply(replyId: string): Observable<IReply | any> {
+    return this.http.get(`${this.baseUrl}/reply/remove/${replyId}`, this.options)
       .map((res: Response) => res.json())
       .catch((error: Response | any) => this.handleError(error));
   }

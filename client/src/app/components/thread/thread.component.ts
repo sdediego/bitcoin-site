@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs/Rx';
 
@@ -30,7 +30,8 @@ export class ThreadComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private threadService: ThreadService,
-    private router: ActivatedRoute
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.user = this.authService.getUser();
     this.authService.getLoginEventEmitter().subscribe(user => {
@@ -39,7 +40,7 @@ export class ThreadComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.router.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(params => {
       this.threadId = params['threadId'];
     });
 
@@ -49,6 +50,18 @@ export class ThreadComponent implements OnInit {
         this.thread = response['thread'];
         this.replies = response['replies'];
         this.votes = response['votes'];
+      },
+      error => {
+        this.error = error.message;
+        console.log(this.error);
+      });
+  }
+
+  public removeThread(threadId) {
+    this.threadService.removeThread(threadId).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['/categories', this.category]);
       },
       error => {
         this.error = error.message;
