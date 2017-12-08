@@ -18,6 +18,7 @@ import { ThreadService } from './shared/services/thread.service';
 
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
+import { SingleCategoryComponent } from './components/single-category/single-category.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { router } from './shared/routes/routes';
     LoginComponent,
     HomeComponent,
     NavbarComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    SingleCategoryComponent
   ],
   imports: [
     BrowserModule,
