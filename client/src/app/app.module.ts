@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SingleCategoryComponent } from './components/single-category/single-category.component';
 import { ThreadComponent } from './components/thread/thread.component';
+import { NewThreadComponent } from './components/new-thread/new-thread.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
@@ -31,7 +32,8 @@ import { router } from './shared/routes/routes';
     NavbarComponent,
     CategoriesComponent,
     SingleCategoryComponent,
-    ThreadComponent
+    ThreadComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,

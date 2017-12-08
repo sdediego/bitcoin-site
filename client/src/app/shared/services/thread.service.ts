@@ -41,4 +41,10 @@ export class ThreadService {
       .catch((error: Response | any) => this.handleError(error));
   }
 
+  public postNewThread(thread: IThread): Observable<IThread | string> {
+    return this.http.post(`${this.baseUrl}/thread/new`, JSON.stringify(thread), this.options)
+      .map((res: Response) => res.json())
+      .catch((error: Response | any) => this.handleError(error));
+  }
+
 }

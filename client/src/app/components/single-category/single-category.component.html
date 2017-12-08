@@ -1,4 +1,7 @@
 <div>
+  <div>
+    <a [routerLink]="['/thread/new']" [queryParams]="{'category': category}">New thread</a>
+  </div>
   <div class="nav-wrapper" style="text-align:center">
     <ul>
       <li *ngFor="let thread of threads">

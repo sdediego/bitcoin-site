@@ -24,7 +24,12 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    //this.user = this.authService.getUser();
+    //this.authService.getLoginEventEmitter().subscribe(user => {
+    //  this.user = user;
+    //});
+  }
 
   public ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';

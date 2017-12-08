@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmitThread(threadForm)" #threadForm="ngForm">
+  <fieldset>
+    <legend>Nuevo hilo</legend>
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <div>
+      <label for="title">Título</label>
+      <input type="text" name="title" [(ngModel)]="thread.title" required>
+    </div>
+    <div>
+      <label for="content">Contenido</label>
+      <textarea name="content" [(ngModel)]="thread.content" required></textarea>
+    </div>
+    <button type="submit" [disabled]="!threadForm.valid">Crear</button>
+  </fieldset>
+</form>
