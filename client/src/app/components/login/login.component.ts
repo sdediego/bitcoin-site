@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import * as steemconnect from './../../../../node_modules/steemconnect';
 
@@ -18,19 +18,26 @@ export class LoginComponent implements OnInit {
     username: "",
     password:""
   };
-  url: string;
+  urlSteemit: string;
+  returnUrl: string;
   error: string;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
     steemconnect.init({
       baseURL: 'https://steemconnect.com',
       app:'bitcoin-bitacora',
       callbackURL: 'http://localhost:4200'
     });
 
-    this.url = steemconnect.getLoginURL();
+    this.urlSteemit = steemconnect.getLoginURL();
 
     steemconnect.isAuthenticated((error, result) => {
       if (error) {
@@ -43,16 +50,21 @@ export class LoginComponent implements OnInit {
 
   onSubmitLogin(loginForm: NgForm): void {
     console.log(this.user);
-    this.authService.login(this.user).subscribe(
-      user => {
-        loginForm.reset();
-        console.log(user);
-        this.router.navigate(['']);
-      },
-      error => {
-        this.error = error.message;
-        console.log(this.error);
-      });
+    if (this.user.username != '' && this.user.password != '') {
+      this.authService.login(this.user).subscribe(
+        user => {
+          loginForm.reset();
+          console.log(this.user);
+          this.router.navigateByUrl(this.returnUrl);
+        },
+        error => {
+          this.error = error.message;
+          console.log(this.error);
+        });
+    } else {
+      console.log('Please provide username and password');
+      this.error = 'Please provide username and password';
+    }
   }
 
 }

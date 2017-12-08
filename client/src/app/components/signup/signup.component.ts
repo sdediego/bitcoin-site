@@ -24,16 +24,22 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
 
   onSubmitSignup(signupForm: NgForm): void {
-    this.authService.signup(this.user).subscribe(
-      user => {
-        signupForm.reset();
-        console.log(user);
-        this.router.navigate(['']);
-      },
-      error => {
-        this.error = error.message;
-        console.log(this.error);
-      });
+    if (this.user.username != '' && this.user.email != '' && this.user.password != '') {
+      this.authService.signup(this.user).subscribe(
+        user => {
+          signupForm.reset();
+          console.log(user);
+          this.router.navigate(['']);
+          // Push service with firebase anouncing email checking
+        },
+        error => {
+          this.error = error.message;
+          console.log(this.error);
+        });
+    } else {
+      console.log('Please provide username, email and password');
+      this.error = 'Please provide username, email and password';
+    }
   }
 
 }

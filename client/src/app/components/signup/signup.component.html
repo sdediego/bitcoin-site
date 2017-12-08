@@ -1,6 +1,7 @@
 <form (ngSubmit)="onSubmitSignup(signupForm)" #signupForm="ngForm">
   <fieldset>
     <legend>Signup</legend>
+    <p class="error" *ngIf="error">{{ error }}</p>
     <div>
       <label for="username">Username</label>
       <input type="text" name="username" [(ngModel)]="user.username" required>
@@ -14,6 +15,5 @@
       <input type="password" name="password" [(ngModel)]="user.password" required>
     </div>
     <button type="submit" [disabled]="!signupForm.valid">Signup</button>
-    <p class="error" *ngIf="error">{{ error }}</p>
   </fieldset>
 </form>
