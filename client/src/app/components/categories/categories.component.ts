@@ -45,10 +45,14 @@ export class CategoriesComponent implements OnInit {
   private handleError(error: Response | any): Observable<string> {
     return Observable.throw(error.json().message);
   }
-  
+
   public getCategories(): Observable<Array<ICategory>> {
     return this.http.get(`${this.baseUrl}`, this.options)
       .map(res => res.json())
       .catch(error => this.handleError(error));
   }
+
+  //public getCategoryById(categoryId: number): Observable<Array<IThread>> {
+  //  
+  //}
 }

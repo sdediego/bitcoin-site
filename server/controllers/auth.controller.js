@@ -118,7 +118,6 @@ module.exports.login = (req, res, next) => {
 module.exports.logout = (req, res, next) => {
   req.logout();
   res.status(200).json({ msg: 'Successfully logged out.' });
-  console.log('Logged out');
 };
 
 module.exports.isLoggedin = (req, res, next) => {
