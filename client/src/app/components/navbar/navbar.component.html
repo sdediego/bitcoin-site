@@ -1,3 +1,10 @@
-<p>
-  navbar works!
-</p>
+<nav>
+  <div class="nav-wrapper" style="text-align:center">
+    <ul>
+      <li><a [routerLink]="['/']">Home</a></li>
+      <li *ngIf="!user"><a [routerLink]="['/login']">Login</a></li>
+      <li *ngIf="!user"><a [routerLink]="['/signup']">Signup</a></li>
+      <li *ngIf="user"><a [routerLink]="['/']" (click)="authService.logout().subscribe()">Exit</a></li>
+    </ul>
+  </div>
+</nav>

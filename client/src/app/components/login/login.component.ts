@@ -7,6 +7,7 @@ import * as steemconnect from './../../../../node_modules/steemconnect';
 import { IUser } from './../../shared/interfaces/user.interface';
 import { AuthService } from './../../shared/services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
