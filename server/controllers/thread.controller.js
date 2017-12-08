@@ -32,6 +32,7 @@ module.exports.thread = (req, res, next) => {
               thread: thread,
               votes: votes
             });
+            return;
           }
 
           if (!votes) {
@@ -40,15 +41,18 @@ module.exports.thread = (req, res, next) => {
               thread: thread,
               replies: replies
             });
+            return;
           }
 
           res.status(200).json({ thread, replies, votes });
+          return;
         })
         .catch(error => {
           res.status(500).json({
             msg: 'Error while resolving promise.',
             error: error.message
           });
+          return;
         });
     })
     .catch(error => {

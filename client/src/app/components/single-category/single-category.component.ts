@@ -19,7 +19,7 @@ import { environment } from './../../../environments/environment';
 export class SingleCategoryComponent implements OnInit {
 
   public user: IUser;
-  public category: ICategory;
+  public category: ICategory | string;
   public threads: Array<IThread>;
   public error: string;
 

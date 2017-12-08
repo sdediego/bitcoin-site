@@ -2,7 +2,7 @@
   <div class="nav-wrapper" style="text-align:center">
     <ul>
       <li *ngFor="let thread of threads">
-        <a [routerLink]="['thread', thread.id]">{{ thread?.title }}</a>
+        <a [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a>
       </li>
     </ul>
   </div>

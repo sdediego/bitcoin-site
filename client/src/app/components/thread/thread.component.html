@@ -1,3 +1,19 @@
-<p>
-  thread works!
-</p>
+<div>
+  <div class="nav-wrapper" style="text-align:center">
+    <div>
+      <h3><b>{{ thread?.title }}</b> - {{ thread?.author.name }}</h3>
+      <h5>{{ thread?.created_at | date }}</h5>
+      <br><br>
+      <p>{{ thread?.content }}</p>
+    </div>
+    <br><br>
+    <ul>
+      <li *ngFor="let reply of replies">
+        <div>
+          <p>{{ reply?.author.username }} - {{ reply?.created_at | date }}</p>
+          <p>{{ reply?. content }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

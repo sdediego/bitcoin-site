@@ -18,7 +18,7 @@ export const router: Routes = [
   { path: 'categories', component: CategoriesComponent, pathMatch: 'full' },
   { path: 'categories/:category', component: SingleCategoryComponent, pathMatch: 'full' },
   //{ path: 'thread/new', component: , pathMatch: 'full' },
-  { path: 'thread/:threadId', component: ThreadComponent, pathMatch: 'full' }
+  { path: 'thread/:threadId', component: ThreadComponent, pathMatch: 'full' },
   //{ path: 'thread/:threadId/remove', component: ThreadComponent, pathMatch: 'full' }
   { path: '**', redirectTo: '' }
 ];

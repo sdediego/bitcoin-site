@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs/Rx';
 
 import { IUser } from './../../shared/interfaces/user.interface';
 import { ICategory } from './../../shared/interfaces/category.interface';
+import { IThread } from './../../shared/interfaces/thread.interface';
+import { IReply } from './../../shared/interfaces/reply.interface';
+import { IVote } from './../../shared/interfaces/vote.interface';
 import { AuthService } from './../../shared/services/auth.service';
 import { ThreadService } from './../../shared/services/thread.service';
 
@@ -19,13 +23,14 @@ export class ThreadComponent implements OnInit {
   public category: ICategory;
   public threadId: string;
   public thread: IThread;
-  public replies: Array<Reply>;
-  public votes: number;
+  public replies: Array<IReply>;
+  public votes: Array<IVote> | number;
   public error: string;
 
   constructor(
     private authService: AuthService,
-    private threadService: ThreadService
+    private threadService: ThreadService,
+    private router: ActivatedRoute
   ) {
     this.user = this.authService.getUser();
     this.authService.getLoginEventEmitter().subscribe(user => {
