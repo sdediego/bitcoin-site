@@ -14,5 +14,6 @@ export const router: Routes = [
   { path: 'signup', component: SignupComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: 'categories', component: CategoriesComponent, pathMatch: 'full' },
+  //{ path: 'categories/:categoryId', component: SingleCategoryComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];

@@ -14,6 +14,8 @@ import { LoginComponent } from './components/login/login.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 
 import { AuthService } from './shared/services/auth.service';
+import { ThreadService } from './shared/services/thread.service';
+
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
 
@@ -35,6 +37,7 @@ import { router } from './shared/routes/routes';
   ],
   providers: [
     AuthService,
+    ThreadService,
     IsLoggedInGuard
   ],
   bootstrap: [AppComponent]
