@@ -6,6 +6,7 @@ import { LoginComponent } from './../../components/login/login.component';
 import { SignupComponent } from './../../components/signup/signup.component';
 import { CategoriesComponent } from './../../components/categories/categories.component';
 import { SingleCategoryComponent } from './../../components/single-category/single-category.component';
+import { ThreadComponent } from './../../components/thread/thread.component';
 
 import { IsLoggedInGuard } from './../guards/isLoggedIn.guard';
 
@@ -16,5 +17,8 @@ export const router: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: 'categories', component: CategoriesComponent, pathMatch: 'full' },
   { path: 'categories/:category', component: SingleCategoryComponent, pathMatch: 'full' },
+  //{ path: 'thread/new', component: , pathMatch: 'full' },
+  { path: 'thread/:threadId', component: ThreadComponent, pathMatch: 'full' }
+  //{ path: 'thread/:threadId/remove', component: ThreadComponent, pathMatch: 'full' }
   { path: '**', redirectTo: '' }
 ];

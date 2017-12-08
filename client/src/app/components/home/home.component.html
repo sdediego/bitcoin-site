@@ -9,10 +9,10 @@
 <ul>
   <div *ngIf="!user">
     <li>
-      <h2><a [routerLink]="['login']">Login</a></h2>
+      <h2><a [routerLink]="['/login']">Login</a></h2>
     </li>
     <li>
-      <h2><a [routerLink]="['signup']">Sign up</a></h2>
+      <h2><a [routerLink]="['/signup']">Sign up</a></h2>
     </li>
   </div>
   <div *ngIf="user">

@@ -29,8 +29,14 @@ export class ThreadService {
       .catch((error: Response | any) => this.handleError(error));
   }
 
-  public getSingleCategory(category): Observable<Array<IThread>> {
+  public getSingleCategory(category: string): Observable<Array<IThread>> {
     return this.http.get(`${this.baseUrl}/categories/${category}`, this.options)
+      .map((res: Response) => res.json())
+      .catch((error: Response | any) => this.handleError(error));
+  }
+
+  public getThread(threadId: string): Observable<IThread | any> {
+    return this.http.get(`${this.baseUrl}/thread/${threadId}`, this.option)
       .map((res: Response) => res.json())
       .catch((error: Response | any) => this.handleError(error));
   }

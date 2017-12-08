@@ -9,19 +9,23 @@ import { ThreadService } from './../../shared/services/thread.service';
 
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  selector: 'app-thread',
+  templateUrl: './thread.component.html',
+  styleUrls: ['./thread.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class ThreadComponent implements OnInit {
 
   public user: IUser;
-  public categories: Array<ICategory>;
+  public category: ICategory;
+  public threadId: string;
+  public thread: IThread;
+  public replies: Array<Reply>;
+  public votes: number;
   public error: string;
 
   constructor(
     private authService: AuthService,
-    private threadService: ThreadService,
+    private threadService: ThreadService
   ) {
     this.user = this.authService.getUser();
     this.authService.getLoginEventEmitter().subscribe(user => {
@@ -30,10 +34,16 @@ export class CategoriesComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.threadService.getCategories().subscribe(
-      categories => {
-        console.log(categories);
-        this.categories = categories;
+    this.router.params.subscribe(params => {
+      this.threadId = params['threadId'];
+    });
+
+    this.threadService.getThread(this.threadId).subscribe(
+      response => {
+        console.log(response);
+        this.thread = response['thread'];
+        this.replies = response['replies'];
+        this.votes = response['votes'];
       },
       error => {
         this.error = error.message;

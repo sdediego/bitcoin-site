@@ -12,13 +12,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { SingleCategoryComponent } from './components/single-category/single-category.component';
+import { ThreadComponent } from './components/thread/thread.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
 
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
-import { SingleCategoryComponent } from './components/single-category/single-category.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SingleCategoryComponent } from './components/single-category/single-cat
     HomeComponent,
     NavbarComponent,
     CategoriesComponent,
-    SingleCategoryComponent
+    SingleCategoryComponent,
+    ThreadComponent
   ],
   imports: [
     BrowserModule,
