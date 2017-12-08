@@ -13,12 +13,12 @@ import { AuthService } from './../../shared/services/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  user: IUser = {
+  public user: IUser = {
     username: "",
     email: "",
     password:""
   };
-  error: string;
+  public error: string;
 
   constructor(private authService: AuthService, private router: Router) {}
 

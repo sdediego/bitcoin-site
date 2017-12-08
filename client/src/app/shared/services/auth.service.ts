@@ -38,28 +38,28 @@ export class AuthService {
     return Observable.throw(error.json().message);
   }
 
-  signup(user: IUser): Observable<IUser | string> {
+  public signup(user: IUser): Observable<IUser | string> {
     return this.http.post(`${this.baseUrl}/signup`, JSON.stringify(user), this.options)
     .map(res => res.json())
     .map(user => this.emitLoginEvent(user))
     .catch(error => this.handleError(error));
   }
 
-  login(user: IUser): Observable<IUser | string> {
+  public login(user: IUser): Observable<IUser | string> {
     return this.http.post(`${this.baseUrl}/login`, JSON.stringify(user), this.options)
       .map(res => res.json())
       .map(user => this.emitLoginEvent(user))
       .catch(error => this.handleError(error));
   }
 
-  logout(): Observable<IUser | string> {
+  public logout(): Observable<IUser | string> {
     return this.http.get(`${this.baseUrl}/logout`, this.options)
       .map(res => res.json())
       .map(user => this.emitLoginEvent(user))
       .catch(error => this.handleError(error));
   }
 
-  isLoggedIn(): Observable<IUser | string> {
+  public isLoggedIn(): Observable<IUser | string> {
     return this.http.get(`${this.baseUrl}/loggedin`, this.options)
       .map(res => res.json())
       .map(user => this.emitLoginEvent(user))

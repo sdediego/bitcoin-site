@@ -10,8 +10,8 @@ import { AuthService } from './../../shared/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  title: string = 'Bitcoin bitácora';
-  user: IUser = { username: "" };
+  public title: string = 'Bitcoin bitácora';
+  public user: IUser = { username: "" };
 
   constructor(private authService: AuthService) {
     this.user = this.authService.getUser();

@@ -11,7 +11,7 @@ import { AuthService } from './../../shared/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  user: IUser;
+  public user: IUser;
 
   constructor(private authService: AuthService) {
     this.user = this.authService.getUser();

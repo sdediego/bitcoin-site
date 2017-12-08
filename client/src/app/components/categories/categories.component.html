@@ -1,3 +1,9 @@
-<p>
-  categories works!
-</p>
+<div>
+  <div class="nav-wrapper" style="text-align:center">
+    <ul>
+      <li *ngFor="let category of categories">
+        <a [routerLink]="['categories', category.category]">{{ category.category }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
