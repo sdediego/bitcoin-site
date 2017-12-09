@@ -22,9 +22,9 @@ export class SignupComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  public ngOnInit(): void {}
 
-  onSubmitSignup(signupForm: NgForm): void {
+  public onSubmitSignup(signupForm: NgForm): void {
     if (this.user.username != '' && this.user.email != '' && this.user.password != '') {
       this.authService.signup(this.user).subscribe(
         user => {

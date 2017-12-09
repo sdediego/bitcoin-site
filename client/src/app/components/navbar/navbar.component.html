@@ -2,10 +2,9 @@
   <div class="nav-wrapper" style="text-align:center">
     <ul>
       <li><a [routerLink]="['/']">Home</a></li>
-      {{ user?.username }}
       <li *ngIf="!user"><a [routerLink]="['login']">Login</a></li>
-      <li *ngIf="!user"><a [routerLink]="['signup']">Signup</a></li>
-      <li *ngIf="user"><a [routerLink]="['/']" (click)="authService.logout().subscribe()">Exit {{ user?.username }}</a></li>
+      <li *ngIf="!user"><a [routerLink]="['signup']">Sign up</a></li>
+      <li *ngIf="user"><a [routerLink]="['/']" (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </nav>

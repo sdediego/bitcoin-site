@@ -72,6 +72,7 @@ module.exports.login = (req, res, next) => {
   User.findOne({ username })
     .then(user => {
       if (!user) {
+        console.log(user);
         res.status(401).json({ msg: 'Username not found.' });
         return;
       }
@@ -117,7 +118,8 @@ module.exports.login = (req, res, next) => {
 
 module.exports.logout = (req, res, next) => {
   req.logout();
-  res.status(200).json({ msg: 'Successfully logged out.' });
+  res.status(200).json({ msg: 'Successfully logged out.', user: req.user });
+  return;
 };
 
 module.exports.isLoggedin = (req, res, next) => {

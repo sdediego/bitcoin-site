@@ -30,8 +30,9 @@ export class AuthService {
 
   private emitLoginEvent(user: IUser): IUser {
     this.user = user;
-    this.loginEvent.emit(this.user);
-    return this.user;
+    this.loginEvent.emit(user);
+    console.log(this.user);
+    return user;
   }
 
   private handleError(error: Response | any): Observable<string> {
@@ -55,7 +56,7 @@ export class AuthService {
   public logout(): Observable<IUser | string> {
     return this.http.get(`${this.baseUrl}/logout`, this.options)
       .map(res => res.json())
-      .map(user => this.emitLoginEvent(user))
+      .map(res => this.emitLoginEvent(res.user))
       .catch(error => this.handleError(error));
   }
 

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) {
     //this.user = this.authService.getUser();
     //this.authService.getLoginEventEmitter().subscribe(user => {
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
     //});
   }
 
-  public ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  public ngOnInit(): void {
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
 
     //steemconnect.init({
     //  baseURL: 'https://steemconnect.com',
@@ -52,20 +52,16 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmitLogin(loginForm: NgForm): void {
-    console.log(this.user);
     if (this.user.username != '' && this.user.password != '') {
       this.authService.login(this.user).subscribe(
         user => {
           loginForm.reset();
-          console.log(this.user);
           this.router.navigateByUrl(this.returnUrl);
         },
         error => {
           this.error = error.message;
-          console.log(this.error);
         });
     } else {
-      console.log('Please provide username and password');
       this.error = 'Please provide username and password';
     }
   }
