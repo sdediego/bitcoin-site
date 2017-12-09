@@ -53,6 +53,7 @@ module.exports.signup = (req, res, next) => {
               msg: `Verification email sent correctly to ${newUser.email}.`,
               info: info
             });
+            return;
           });
         })
         .catch(error => {
@@ -106,6 +107,7 @@ module.exports.login = (req, res, next) => {
             }
 
             res.status(200).json(req.user);
+            return;
           });
         })(req, res, next);
       }

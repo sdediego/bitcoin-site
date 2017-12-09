@@ -12,6 +12,7 @@ module.exports.list = (req, res, next) => {
       }
 
       res.status(200).json(categories);
+      return;
     })
     .catch(error => {
       res.status(500).json({ msg: 'Unable to retrieve categories list.' });
@@ -35,6 +36,7 @@ module.exports.category = (req, res, next) => {
           }
 
           res.status(200).json(threads);
+          return;
         })
         .catch(error => {
           res.status(500).json({ msg: 'Unable to retrieve category threads.' });

@@ -38,6 +38,7 @@ module.exports.verification = (req, res, next) => {
           user.save()
             .then(() => {
               res.status(200).json({ msg: 'The account has been verified.' });
+              return;
             })
             .catch(error => {
               res.status(500).json({ msg: 'Error saving verified user.' });
@@ -91,6 +92,7 @@ module.exports.resend = (req, res, next) => {
             }
 
             res.status(200).json({ msg: 'Verification email resend.' });
+            return;
           });
         })
         .catch(error => {

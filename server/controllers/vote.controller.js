@@ -9,6 +9,7 @@ module.exports.vote = (req, res, next) => {
   newVote.save()
     .then(() => {
       res.status(200).json({ msg: 'Vote successfully added.' });
+      return;
     })
     .catch(error => {
       res.status(500).json({ msg: 'Unable to save new vote.' });

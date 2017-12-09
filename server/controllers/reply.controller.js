@@ -14,6 +14,7 @@ module.exports.reply = (req, res, next) => {
         msg: 'New reply successfully saved',
         newThread: newReply
       });
+      return;
     })
     .catch(error => {
       res.status(500).json({ msg: 'Unable to save new reply.' });
@@ -32,6 +33,7 @@ module.exports.removeReply = (req, res, next) => {
       }
 
       res.status(200).json({ msg: 'Reply successfully removed.' });
+      return;
     })
     .catch(error => {
       res.status(500).json({

@@ -80,6 +80,7 @@ module.exports.newThread = (req, res, next) => {
         msg: 'New thread successfully saved',
         newThread: newThread
       });
+      return;
     })
     .catch(error => {
       res.status(500).json({ msg: 'Unable to save new thread.' });
@@ -129,6 +130,7 @@ module.exports.removeThread = (req, res, next) => {
               reply: replies,
               votes: votes
             });
+            return;
           })
           .catch(error => {
             thread.remove()
@@ -136,12 +138,14 @@ module.exports.removeThread = (req, res, next) => {
                 res.status(206).json({
                   msg: 'Thread removed. Referenced docs remain intact.',
                 });
+                return;
               })
               .catch(error => {
                 res.status(500).json({
                   msg: 'Error resolving promises simultaneously.',
                   error: error
                 });
+                return;
               });
           });
       }
