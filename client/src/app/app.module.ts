@@ -16,13 +16,14 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { SingleCategoryComponent } from './components/single-category/single-category.component';
 import { ThreadComponent } from './components/thread/thread.component';
 import { NewThreadComponent } from './components/new-thread/new-thread.component';
+import { ReplyComponent } from './components/reply/reply.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
 
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
-import { ReplyComponent } from './components/reply/reply.component';
+import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
 
 
 @NgModule({
@@ -37,7 +38,9 @@ import { ReplyComponent } from './components/reply/reply.component';
     ThreadComponent,
     NewThreadComponent,
     VerificationComponent,
-    ReplyComponent
+    ReplyComponent,
+    // pipes
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,8 @@ import { ReplyComponent } from './components/reply/reply.component';
     ThreadService,
     IsLoggedInGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
