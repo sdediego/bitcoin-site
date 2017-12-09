@@ -62,28 +62,40 @@ module.exports.thread = (req, res, next) => {
 };
 
 module.exports.newThread = (req, res, next) => {
-  const newThread = new Thread({
-    author: req.user.id,
-    category: req.query.category,
-    title: req.body.title,
-    content: req.body.content
-  });
 
-  newThread.save()
-    .then(() => {
-      if (newThread.errors) {
-        res.status(400).json(newThread);
-        return;
-      }
+  Category.findOne({ category: req.params.category })
+    .then(category => {
 
-      res.status(200).json({
-        msg: 'New thread successfully saved',
-        newThread: newThread
+      const newThread = new Thread({
+        author: req.user.id || "5a2c0394be56684e837c79fd",
+        category: category.id,
+        title: req.body.title,
+        content: req.body.content
       });
-      return;
+
+      newThread.save()
+        .then(() => {
+          if (newThread.errors) {
+            res.status(400).json(newThread);
+            return;
+          }
+
+          res.status(200).json({
+            msg: 'New thread successfully saved',
+            newThread: newThread
+          });
+          return;
+        })
+        .catch(error => {
+          res.status(500).json({ msg: 'Unable to save new thread.' });
+          return;
+        });
     })
     .catch(error => {
-      res.status(500).json({ msg: 'Unable to save new thread.' });
+      res.status(500).json({
+        msg: 'An error ocurred. Unable to find category.',
+        newThread: null
+      });
       return;
     });
 };

@@ -32,12 +32,10 @@ export class CategoriesComponent implements OnInit {
   public ngOnInit(): void {
     this.threadService.getCategories().subscribe(
       categories => {
-        console.log(categories);
         this.categories = categories;
       },
       error => {
         this.error = error.message;
-        console.log(this.error);
       });
   }
 

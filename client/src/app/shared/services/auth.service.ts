@@ -43,7 +43,6 @@ export class AuthService {
   public signup(user: IUser): Observable<IUser | string> {
     return this.http.post(`${this.baseAuthUrl}/signup`, JSON.stringify(user), this.options)
     .map(res => res.json())
-    //.map(user => this.emitLoginEvent(user))
     .catch(error => this.handleError(error));
   }
 

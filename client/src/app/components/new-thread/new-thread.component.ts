@@ -21,7 +21,7 @@ import { ThreadService } from './../../shared/services/thread.service';
 export class NewThreadComponent implements OnInit {
 
   public user: IUser;
-  public thread: IThread;
+  public thread: IThread = { title: "", content:"" };
   public category: ICategory | string;
   public error: string;
 
@@ -38,13 +38,17 @@ export class NewThreadComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.category = params['category'];
-    });
+    this.category = this.activatedRoute.snapshot.queryParams['category'];
+    console.log(this.category);
+    //this.activatedRoute.params.subscribe(params => {
+    //  this.category = params['category'];
+    //  console.log(this.category);
+    //});
   }
 
   public onSubmitThread(threadForm: NgForm): void {
-    this.threadService.postNewThread(this.thread).subscribe(
+    console.log('Submiting new thread: ', this.thread, this.category);
+    this.threadService.postNewThread(this.thread, this.category).subscribe(
       response => {
         console.log(response);
         this.router.navigate(['/categories', this.category]);

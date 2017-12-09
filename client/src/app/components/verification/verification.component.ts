@@ -26,7 +26,7 @@ export class VerificationComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.token = params['token'];
     });
-    console.log(this.token);
+    
     this.authService.verification(this.token).subscribe(
       response => {
         this.router.navigate(['/login']);

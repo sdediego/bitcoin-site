@@ -46,27 +46,25 @@ export class ThreadComponent implements OnInit {
 
     this.threadService.getThread(this.threadId).subscribe(
       response => {
-        console.log(response);
         this.thread = response['thread'];
         this.replies = response['replies'];
         this.votes = response['votes'];
       },
       error => {
         this.error = error.message;
-        console.log(this.error);
       });
   }
 
-  public removeThread(threadId) {
-    this.threadService.removeThread(threadId).subscribe(
-      response => {
-        console.log(response);
-        this.router.navigate(['/categories', this.category]);
-      },
-      error => {
-        this.error = error.message;
-        console.log(this.error);
-      });
-  }
+  //public removeThread(threadId: string): void {
+  //  this.threadService.removeThread(threadId).subscribe(
+  //    response => {
+  //      console.log(response);
+  //      this.router.navigate(['/categories', this.category]);
+  //    },
+  //    error => {
+  //      this.error = error.message;
+  //      console.log(this.error);
+  //    });
+  //}
 
 }

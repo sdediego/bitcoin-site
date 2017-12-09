@@ -2,7 +2,7 @@ const express = require('express');
 const threadController = require('./../../controllers/thread.controller');
 const router = express.Router();
 
-router.post('/new', threadController.newThread);
+router.post('/new/:category', threadController.newThread);
 router.get('/:id', threadController.thread);
 router.get('/:id/remove', threadController.removeThread);
 //router.post('/:id/reply', threadController.reply);
