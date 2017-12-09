@@ -7,9 +7,11 @@ const Token = require('./../models/token.model');
 
 module.exports.verification = (req, res, next) => {
   const token = req.params.token;
+  console.log(token);
   Token.findOne({ token: token })
     .then(token => {
       if (!token) {
+        console.log('Token not found');
         res.status(400).json({
           type: 'not-verified',
           msg: 'Unable to find valid token. It may have expired.'
@@ -20,6 +22,7 @@ module.exports.verification = (req, res, next) => {
       User.findOne({ _id: token.user })
         .then(user => {
           if (!user) {
+            console.log('User not found');
             res.status(400).json({
               msg: 'Unable to find a user for provided token.'
             });
@@ -27,6 +30,7 @@ module.exports.verification = (req, res, next) => {
           }
 
           if (user.isVerified) {
+            console.log('User is verified');
             res.status(400).json({
               type: 'already-verified',
               msg: 'User already verified.'
@@ -37,6 +41,7 @@ module.exports.verification = (req, res, next) => {
           user.isVerified = true;
           user.save()
             .then(() => {
+              console.log('Account verified');
               res.status(200).json({ msg: 'The account has been verified.' });
               return;
             })
@@ -46,6 +51,7 @@ module.exports.verification = (req, res, next) => {
             });
         })
         .catch(error => {
+          console.log('Internal error');
           res.status(500).json({
             msg: 'Error ocurred fetching user with token.'
           });

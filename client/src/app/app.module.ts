@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { VerificationComponent } from './components/verification/verification.component';
 import { LoginComponent } from './components/login/login.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SingleCategoryComponent } from './components/single-category/single-category.component';
@@ -33,7 +34,8 @@ import { router } from './shared/routes/routes';
     CategoriesComponent,
     SingleCategoryComponent,
     ThreadComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,
