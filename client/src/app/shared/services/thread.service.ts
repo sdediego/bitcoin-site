@@ -17,8 +17,18 @@ export class ThreadService {
   private baseUrl = `${environment.apiUrl}`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
+  private replyEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private http: Http) {}
+
+  public getReplyEventEmitter(): EventEmitter<any> {
+    return this.replyEvent;
+  }
+
+  private emitReplyEvent(reply: IReply): IReply {
+    this.replyEvent.emit(reply);
+    return reply;
+  }
 
   private handleError(error: Response | any): Observable<string> {
     return Observable.throw(error.json().message);
@@ -57,6 +67,7 @@ export class ThreadService {
   public postNewReply(reply: IReply, threadId: string): Observable<IReply | any> {
     return this.http.post(`${this.baseUrl}/reply/${threadId}`, JSON.stringify(reply), this.options)
       .map((res: Response) => res.json())
+      .map((res: Response | any) => this.emitReplyEvent(res.newThread))
       .catch((error: Response | any) => this.handleError(error));
   }
 

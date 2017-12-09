@@ -22,6 +22,7 @@ import { ThreadService } from './shared/services/thread.service';
 
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
+import { ReplyComponent } from './components/reply/reply.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { router } from './shared/routes/routes';
     SingleCategoryComponent,
     ThreadComponent,
     NewThreadComponent,
-    VerificationComponent
+    VerificationComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,

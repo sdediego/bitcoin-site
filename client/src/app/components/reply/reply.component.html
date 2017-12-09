@@ -1,0 +1,13 @@
+<div class="thread-reply">
+  <form (ngSubmit)="onSubmitReply(replyForm)" #replyForm="ngForm">
+    <fieldset>
+      <legend>Nuevo comentario</legend>
+      <p class="error" *ngIf="error">{{ error }}</p>
+      <div>
+        <label for="content">Contenido</label>
+        <textarea name="content" [(ngModel)]="reply.content" required></textarea>
+      </div>
+      <button type="submit" [disabled]="!replyForm.valid">Enviar</button>
+    </fieldset>
+  </form>
+</div>

@@ -39,23 +39,16 @@ export class NewThreadComponent implements OnInit {
 
   public ngOnInit(): void {
     this.category = this.activatedRoute.snapshot.queryParams['category'];
-    console.log(this.category);
-    //this.activatedRoute.params.subscribe(params => {
-    //  this.category = params['category'];
-    //  console.log(this.category);
-    //});
   }
 
   public onSubmitThread(threadForm: NgForm): void {
-    console.log('Submiting new thread: ', this.thread, this.category);
     this.threadService.postNewThread(this.thread, this.category).subscribe(
       response => {
-        console.log(response);
+        threadForm.reset();
         this.router.navigate(['/categories', this.category]);
       },
       error => {
         this.error = error.message;
-        console.log(this.error);
       });
   }
 

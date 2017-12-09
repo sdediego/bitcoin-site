@@ -67,7 +67,7 @@ module.exports.newThread = (req, res, next) => {
     .then(category => {
 
       const newThread = new Thread({
-        author: req.user.id || "5a2c0394be56684e837c79fd",
+        author: "5a2c0394be56684e837c79fd",
         category: category.id,
         title: req.body.title,
         content: req.body.content
