@@ -9,7 +9,7 @@ export class CoindeskService {
 
   private baseCoindeskUrl = 'https://api.coindesk.com/v1/bpi';
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private //options = new RequestOptions({ headers: this.headers, withCredentials: true });
+  //private options = new RequestOptions({ headers: this.headers, withCredentials: true });
   private priceEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private http: Http) {}
