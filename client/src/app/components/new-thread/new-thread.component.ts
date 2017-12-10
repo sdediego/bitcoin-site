@@ -11,6 +11,7 @@ import { IReply } from './../../shared/interfaces/reply.interface';
 import { IVote } from './../../shared/interfaces/vote.interface';
 import { AuthService } from './../../shared/services/auth.service';
 import { ThreadService } from './../../shared/services/thread.service';
+import { CoindeskService } from './../../shared/services/coindesk.service';
 
 
 @Component({
@@ -21,7 +22,11 @@ import { ThreadService } from './../../shared/services/thread.service';
 export class NewThreadComponent implements OnInit {
 
   public user: IUser;
-  public thread: IThread = { title: "", content:"" };
+  public thread: IThread = {
+    title: "",
+    content:"",
+    bitcoinPrice: 0.00
+  };
   public category: ICategory | string;
   public error: string;
 
@@ -29,7 +34,8 @@ export class NewThreadComponent implements OnInit {
     private authService: AuthService,
     private threadService: ThreadService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private coindeskService: CoindeskService
   ) {
     this.user = this.authService.getUser();
     this.authService.getLoginEventEmitter().subscribe(user => {
@@ -39,16 +45,29 @@ export class NewThreadComponent implements OnInit {
 
   public ngOnInit(): void {
     this.category = this.activatedRoute.snapshot.queryParams['category'];
+    this.getBtcPrice();
   }
 
-  public onSubmitThread(threadForm: NgForm): void {
-    this.threadService.postNewThread(this.thread, this.category).subscribe(
+  private getBtcPrice(): void {
+    this.coindeskService.getCurrentBtcPrice().subscribe(
       response => {
-        threadForm.reset();
-        this.router.navigate(['/categories', this.category]);
+        this.thread['bitcoinPrice'] = parseInt(response['bpi']['USD']['rate_float']);
+        console.log(this.thread);
       },
       error => {
         this.error = error.message;
+      });
+  }
+
+  public onSubmitThread(threadForm: NgForm): void {
+    this.threadService.postNewThread(this.thread, this.category)
+      .subscribe(
+        response => {
+          threadForm.reset();
+          this.router.navigate(['/categories', this.category]);
+        },
+        error => {
+          this.error = error.message;
       });
   }
 

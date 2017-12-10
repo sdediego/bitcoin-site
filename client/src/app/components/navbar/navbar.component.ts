@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { Observable } from 'rxjs/Rx';
+import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 
 import { IUser } from './../../shared/interfaces/user.interface';
 import { AuthService } from './../../shared/services/auth.service';
@@ -10,10 +13,12 @@ import { CoindeskService } from './../../shared/services/coindesk.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   public user: IUser;
-  public btcPrice: Number;
+  public alive: boolean = true;
+  public btcPrice: number;
+  public interval: number;
   public error: string;
 
   constructor(
@@ -24,25 +29,28 @@ export class NavbarComponent implements OnInit {
     this.authService.getLoginEventEmitter().subscribe(user => {
       this.user = user;
     });
-
-    setInterval(this.getBtcPrice(), 60 * 1000);
   }
 
   public ngOnInit(): void {
-    this.user = this.authService.getUser();
-    this.authService.getLoginEventEmitter().subscribe(user => {
-      this.user = user;
-    });
+    this.getBtcPrice();
+
+    IntervalObservable.create(60 * 1000)
+      .takeWhile(() => this.alive)
+      .subscribe(() => {
+        this.getBtcPrice();
+      });
   }
 
-  public getBtcPrice(): void {
+  public ngOnDestroy(): void {
+    this.alive = false;
+  }
+
+  private getBtcPrice(): void {
     this.coindeskService.getCurrentBtcPrice().subscribe(
       response => {
-        this.btcPrice = parseInt(response['bpi']['USD']['rate_float']);
-        console.log(this.btcPrice);
+        this.btcPrice = response['bpi']['USD']['rate'].split('.')[0];
       },
       error => {
-        console.log('Error retrieving data');
         this.error = error.message;
       });
   }

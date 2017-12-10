@@ -7,7 +7,8 @@
       <h3><b>{{ thread?.title }}</b></h3>
       <h5>
         <span class="thread-author">{{ thread?.author.username }}</span> -
-        <span class="thread-date">{{ thread?.created_at | date }}</span>
+        <span class="thread-date">{{ thread?.created_at | date }}</span> -
+        <span class="thread-date">BTC: {{ thread?.bitcoinPrice | currency }}</span>
       </h5>
       <br><br>
       <p class="thread-content">{{ thread?.content }}</p>

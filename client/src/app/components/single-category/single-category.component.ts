@@ -41,13 +41,10 @@ export class SingleCategoryComponent implements OnInit {
 
     this.threadService.getSingleCategory(this.category).subscribe(
       threads => {
-        console.log(threads);
-        console.log('CATEGORIA', typeof this.category);
         this.threads = threads;
       },
       error => {
         this.error = error.message;
-        console.log(this.error);
       });
   }
 
