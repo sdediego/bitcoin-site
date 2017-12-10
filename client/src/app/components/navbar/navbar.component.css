@@ -47,7 +47,7 @@
   color: #8b8b8b;
 }
 
-.nav-bar-menu {
+/*.nav-bar-menu {
   width: auto;
   margin-right: 5%;
   top: 0;
@@ -56,4 +56,27 @@
   flex-flow: row nowrap;
   align-self: flex-start;
   color: #2C303F;
+}*/
+
+.auth-section {
+  width: auto;
+  margin-right: 5%;
+  top: 0;
+  float: right;
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: space-between;
+  color: #2C303F;
+}
+
+.bitcoin-real-time {
+  color: #fff;
+}
+
+.btc-price-up {
+    color: green;
+}
+
+.btc-price-down {
+  color: red;
 }
