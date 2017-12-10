@@ -1,0 +1,35 @@
+.login {
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 3% 2%;
+  width: 25%;
+  border: 2px solid #fab915;
+  border-radius: 10px;
+}
+
+legend {
+  font-size: 20px;
+  text-align: center;
+  color: #4a4a4a;
+}
+
+.input-field input:focus+label{
+  color: #fab915;
+}
+
+.input-field input:focus {
+  border-bottom: 1px solid #fab915;
+  box-shadow: 0 1px 0 0 #fab915;
+}
+
+.button-submit {
+  text-align: center;
+}
+
+button {
+  background-color: #4a4a4a;
+}
+
+button:hover {
+  background-color: #fab915;
+}

@@ -1,18 +1,24 @@
-<form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
-  <fieldset>
+<div class="login">
+  <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
     <legend>Login</legend>
     <p class="error" *ngIf="error">{{ error }}</p>
-    <div>
-      <label for="username">Username</label>
-      <input type="text" name="username" [(ngModel)]="user.username" required>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <input id="title" type="text" name="username" [(ngModel)]="user.username" required>
+      <label for="title">Usuario</label>
     </div>
-    <div>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <input id="password" type="password" name="password" [(ngModel)]="user.password" required>
       <label for="password">Password</label>
-      <input type="password" name="password" [(ngModel)]="user.password" required>
     </div>
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-  </fieldset>
-</form>
+    <div class="button-submit">
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!loginForm.valid">
+        Login<i class="material-icons right"></i>
+      </button>
+    </div>
+  </form>
+</div>
 <div>
   <a [href]="urlSteemit">Steemit login</a>
 </div>

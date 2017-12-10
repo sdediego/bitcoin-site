@@ -1,19 +1,26 @@
-<form (ngSubmit)="onSubmitSignup(signupForm)" #signupForm="ngForm">
-  <fieldset>
-    <legend>Signup</legend>
+<div class="signup">
+  <form (ngSubmit)="onSubmitSignup(signupForm)" #signupForm="ngForm">
+    <legend>Sign up</legend>
     <p class="error" *ngIf="error">{{ error }}</p>
-    <div>
-      <label for="username">Username</label>
-      <input type="text" name="username" [(ngModel)]="user.username" required>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <input id="username" type="text" name="username" [(ngModel)]="user.username" required>
+      <label for="username">Usuario</label>
     </div>
-    <div>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <input id="email" type="text" name="email" [(ngModel)]="user.email" required>
       <label for="email">Email</label>
-      <input type="text" name="email" [(ngModel)]="user.email" required>
     </div>
-    <div>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <input id="password" type="password" name="password" [(ngModel)]="user.password" required>
       <label for="password">Password</label>
-      <input type="password" name="password" [(ngModel)]="user.password" required>
     </div>
-    <button type="submit" [disabled]="!signupForm.valid">Signup</button>
-  </fieldset>
-</form>
+    <div class="button-submit">
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!signupForm.valid">
+        Signup<i class="material-icons right"></i>
+      </button>
+    </div>
+  </form>
+</div>
