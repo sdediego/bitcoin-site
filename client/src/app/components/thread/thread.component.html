@@ -1,15 +1,15 @@
 <div class="thread">
   <div class="thread-wrap" style="text-align:center">
     <div class="thread-header">
-      <span *ngIf="user && user.username == thread.author.username">
-        <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
-      </span>
       <h3><b>{{ thread?.title }}</b></h3>
       <h5>
         <span class="thread-author">{{ thread?.author.username }}</span> -
         <span class="thread-date">{{ thread?.created_at | date }}</span> -
         <span class="thread-date">BTC: {{ thread?.bitcoinPrice | currency }}</span>
       </h5>
+      <span *ngIf="user && user.username == thread.author.username">
+        <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
+      </span>
       <br><br>
       <p class="thread-content">{{ thread?.content }}</p>
     </div>

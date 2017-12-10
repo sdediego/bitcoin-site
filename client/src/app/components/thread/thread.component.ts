@@ -39,7 +39,6 @@ export class ThreadComponent implements OnInit {
     });
 
     this.threadService.getReplyEventEmitter().subscribe(reply => {
-      console.log(reply);
       this.replies.unshift(reply);
     });
   }
@@ -54,22 +53,24 @@ export class ThreadComponent implements OnInit {
         this.thread = response['thread'];
         this.replies = response['replies'];
         this.votes = response['votes'];
+        this.category = response['thread']['category']['category'];
+        console.log(this.category);
       },
       error => {
         this.error = error.message;
       });
   }
 
-  //public removeThread(threadId: string): void {
-  //  this.threadService.removeThread(threadId).subscribe(
-  //    response => {
-  //      console.log(response);
-  //      this.router.navigate(['/categories', this.category]);
-  //    },
-  //    error => {
-  //      this.error = error.message;
-  //      console.log(this.error);
-  //    });
-  //}
+  public removeThread(): void {
+    this.threadService.removeThread(this.threadId).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['/categories', this.category]);
+      },
+      error => {
+        this.error = error.message;
+        console.log(this.error);
+      });
+  }
 
 }
