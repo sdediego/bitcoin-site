@@ -5,13 +5,14 @@ module.exports.reply = (req, res, next) => {
   console.log('Dentro de Reply');
 
   const newReply = new Reply({
-    author:  "5a2c0394be56684e837c79fd",
+    author: req.user.id,
     thread: req.params.threadId,
     content: req.body.content
   });
 
   newReply.save()
     .then(() => {
+      newReply.author = req.user;
       res.status(200).json({
         msg: 'New reply successfully saved',
         newThread: newReply

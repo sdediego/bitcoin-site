@@ -39,6 +39,7 @@ export class ThreadComponent implements OnInit {
     });
 
     this.threadService.getReplyEventEmitter().subscribe(reply => {
+      console.log(reply);
       this.replies.unshift(reply);
     });
   }

@@ -1,3 +1,25 @@
-.thread-list {
-  margin-top: 50px;
+.container {
+  margin-top: 100px;
+}
+
+li {
+  width: 85%;
+  height: 100%;
+  margin: 1% auto;
+  margin-left: 5%;
+  float: left;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+li span {
+  display: inline-block;
+  margin-left: 0;
+  padding-left: 0;
+  width: 30%;
+  list-style-type: none;
+  align-self: left;
+  width: auto;
+  color: #8b8b8b;
 }

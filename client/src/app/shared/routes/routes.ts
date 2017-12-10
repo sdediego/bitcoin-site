@@ -20,7 +20,7 @@ export const router: Routes = [
   { path: 'verification/:token', component: VerificationComponent, pathMatch: 'full' },
   { path: 'categories', component: CategoriesComponent, pathMatch: 'full' },
   { path: 'categories/:category', component: SingleCategoryComponent, pathMatch: 'full' },
-  { path: 'thread/new', component: NewThreadComponent, /*canActivate: [IsLoggedInGuard],*/ pathMatch: 'full' },
+  { path: 'thread/new', component: NewThreadComponent, canActivate: [IsLoggedInGuard], pathMatch: 'full' },
   { path: 'thread/:threadId', component: ThreadComponent, pathMatch: 'full' },
   //{ path: 'thread/:threadId/remove', component: ThreadComponent, canActivate: [IsLoggedInGuard], pathMatch: 'full' }
   { path: '**', redirectTo: '' }

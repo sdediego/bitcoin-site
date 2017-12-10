@@ -14,7 +14,9 @@
       <p class="thread-content">{{ thread?.content }}</p>
     </div>
     <br><br>
-    <app-reply></app-reply>
+    <div *ngIf="user">
+      <app-reply></app-reply>
+    </div>
     <ul>
       <li *ngFor="let reply of replies">
         <div class="reply">
