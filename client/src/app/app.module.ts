@@ -20,6 +20,7 @@ import { ReplyComponent } from './components/reply/reply.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
+import { CoindeskService } from './shared/services/coindesk.service';
 
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
@@ -51,6 +52,7 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
   providers: [
     AuthService,
     ThreadService,
+    CoindeskService,
     IsLoggedInGuard
   ],
   bootstrap: [

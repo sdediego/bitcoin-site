@@ -21,13 +21,19 @@
     </div>
     <div>
       <ul>
+        <li>
+          <div class="bitcoin-real-time">
+            <span class="btc-currency">BTC/USD</span>
+            <span class="btc-price">${{ btcPrice }}</span>
+          </div>
+        </li>
         <li *ngIf="!user"><a [routerLink]="['login']">Login</a></li>
         <li *ngIf="!user"><a [routerLink]="['signup']">Sign up</a></li>
         <li *ngIf="user"><a [routerLink]="['/']" (click)="logout()">Logout</a></li>
       </ul>
     </div>
-    <div class="nav-bar-menu">
+    <!--div class="nav-bar-menu">
       <a href="http://localhost:3000/mercados"><span>Menu</span></a>
-    </div>
+    </div-->
   </div>
 </nav>
