@@ -5,6 +5,10 @@ const categorySchema = new Schema({
     category: {
       type: String,
       required: [true, 'Category is required.']
+    },
+    phrase: {
+      type: String,
+      required: [true, 'Phrase is required.']
     }
   },
   {

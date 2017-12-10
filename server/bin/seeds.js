@@ -31,16 +31,20 @@ User.create(users, (error, docs) => {
 
 /*const categories = [
   {
-    category: 'bitcoin'
+    category: 'bitcoin',
+    phrase: 'Un nuevo sistema financiero'
   },
   {
-    category: 'blockchain'
+    category: 'blockchain',
+    phrase: 'La tecnología más disruptiva del momento'
   },
   {
-    category: 'economia'
+    category: 'economía',
+    phrase: 'El impacto de Bitcoin en el mundo'
   },
   {
-    category: 'criptodivisas'
+    category: 'criptodivisas',
+    phrase: 'El mundo de las altcoins'
   }
 ];
 
@@ -101,7 +105,7 @@ Thread.create(threads, (error, docs) => {
   mongoose.connection.close();
 });*/
 
-const replies = [
+/*const replies = [
   {
     author: '5a286f9cf6cb8230b24ac989',
     thread: '5a292e23b61e892cc3ee668f',
@@ -139,4 +143,4 @@ Reply.create(replies, (error, docs) => {
     console.log(replies._id);
   });
   mongoose.connection.close();
-});
+});*/

@@ -1,11 +1,15 @@
-<div>
+<div class="thread-list">
   <div>
     <a [routerLink]="['/thread/new']" [queryParams]="{'category': category}">New thread</a>
   </div>
-  <div class="nav-wrapper" style="text-align:center">
-    <ul>
-      <li *ngFor="let thread of threads">
-        <a [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a>
+  <div class="thread-wrap">
+    <ul class="threads-inline" *ngFor="let thread of threads">
+      <li>
+        <dl>
+          <dt>  <a [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a></dt>
+          <dd>{{ thread?.author.username }}</dd>
+          <dt>{{ thread?.created_at | date }}</dt>
+        </dl>
       </li>
     </ul>
   </div>

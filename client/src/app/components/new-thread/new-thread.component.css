@@ -1,0 +1,32 @@
+.new-thread {
+  margin: 0 auto;
+  margin-top: 150px;
+  width: 50%;
+}
+
+legend {
+  font-size: 20px;
+  text-align: center;
+  color: #4a4a4a;
+}
+
+.input-field input:focus+label, .input-field textarea:focus+label {
+  color: #fab915;
+}
+
+.input-field input:focus, .input-field textarea:focus {
+  border-bottom: 1px solid #fab915;
+  box-shadow: 0 1px 0 0 #fab915;
+}
+
+.button-submit {
+  text-align: center;
+}
+
+button {
+  background-color: #4a4a4a;
+}
+
+button:hover {
+  background-color: #fab915;
+}

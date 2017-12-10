@@ -1,10 +1,33 @@
-<nav>
-  <div class="nav-wrapper" style="text-align:center">
-    <ul>
-      <li><a [routerLink]="['/']">Home</a></li>
-      <li *ngIf="!user"><a [routerLink]="['login']">Login</a></li>
-      <li *ngIf="!user"><a [routerLink]="['signup']">Sign up</a></li>
-      <li *ngIf="user"><a [routerLink]="['/']" (click)="logout()">Logout</a></li>
-    </ul>
+<nav class="nav-bar">
+  <div class="nav-bar-wrap">
+    <div class="nav-bar-home">
+      <a [routerLink]="['/']"><span>Home</span></a>
+    </div>
+    <div>
+      <ul class="nav-bar-ul">
+        <li class="nav-bar-li">
+          <a href="http://localhost:3000/inicio"><span>Inicio</span></a>
+        </li>
+        <li class="nav-bar-li">
+          <a href="http://localhost:3000/noticias"><span>Noticias</span></a>
+        </li>
+        <li class="nav-bar-li">
+          <a href="http://localhost:3000/comunidad"><span>Comunidad</span></a>
+        </li>
+        <li class="nav-bar-li">
+          <a href="http://localhost:3000/mercados"><span>Mercados</span></a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li *ngIf="!user"><a [routerLink]="['login']">Login</a></li>
+        <li *ngIf="!user"><a [routerLink]="['signup']">Sign up</a></li>
+        <li *ngIf="user"><a [routerLink]="['/']" (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+    <div class="nav-bar-menu">
+      <a href="http://localhost:3000/mercados"><span>Menu</span></a>
+    </div>
   </div>
 </nav>

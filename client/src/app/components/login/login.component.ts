@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   public ngOnInit(): void {
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
-
+    console.log(this.returnUrl);
     //steemconnect.init({
     //  baseURL: 'https://steemconnect.com',
     //  app:'bitcoin-bitacora',

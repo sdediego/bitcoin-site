@@ -1,21 +1,27 @@
-<div>
-  <div class="nav-wrapper" style="text-align:center">
-    <div>
+<div class="thread">
+  <div class="thread-wrap" style="text-align:center">
+    <div class="thread-header">
       <span *ngIf="user && user.username == thread.author.username">
         <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
       </span>
-      <h3><b>{{ thread?.title }}</b> - {{ thread?.author.username }}</h3>
-      <h5>{{ thread?.created_at | date }}</h5>
+      <h3><b>{{ thread?.title }}</b></h3>
+      <h5>
+        <span class="thread-author">{{ thread?.author.username }}</span> -
+        <span class="thread-date">{{ thread?.created_at | date }}</span>
+      </h5>
       <br><br>
-      <p>{{ thread?.content }}</p>
+      <p class="thread-content">{{ thread?.content }}</p>
     </div>
     <br><br>
     <app-reply></app-reply>
     <ul>
       <li *ngFor="let reply of replies">
-        <div>
-          <p>{{ reply?.author.username }} - {{ reply?.created_at | date }}</p>
-          <p>{{ reply?. content }}</p>
+        <div class="reply">
+          <p class="reply-header">
+            <b>{{ reply?.author.username }}</b> -
+            {{ reply?.created_at | date }}
+          </p>
+          <p class="reply-content">{{ reply?. content }}</p>
         </div>
       </li>
     </ul>

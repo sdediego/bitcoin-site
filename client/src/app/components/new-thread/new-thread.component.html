@@ -1,15 +1,21 @@
-<form (ngSubmit)="onSubmitThread(threadForm)" #threadForm="ngForm">
-  <fieldset>
+<div class="new-thread">
+  <form (ngSubmit)="onSubmitThread(threadForm)" #threadForm="ngForm">
     <legend>Nuevo hilo</legend>
     <p class="error" *ngIf="error">{{ error }}</p>
-    <div>
-      <label for="title">Título</label>
-      <input type="text" name="title" [(ngModel)]="thread.title" required>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <input id="title" type="text" name="title" [(ngModel)]="thread.title" required>
+      <label for="icon_prefix2">Título</label>
     </div>
-    <div>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <textarea id="content" class="materialize-textarea" name="content" [(ngModel)]="thread.content" required></textarea>
       <label for="content">Contenido</label>
-      <textarea name="content" [(ngModel)]="thread.content" required></textarea>
     </div>
-    <button type="submit" [disabled]="!threadForm.valid">Crear</button>
-  </fieldset>
-</form>
+    <div class="button-submit">
+    <button class="btn waves-effect waves-light" type="submit" [disabled]="!threadForm.valid">
+      Crear<i class="material-icons right"></i>
+    </button>
+  </div>
+  </form>
+</div>

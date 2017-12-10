@@ -1,0 +1,31 @@
+.thread {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 50%;
+}
+
+.thread-header {}
+
+.thread-content {
+  text-align: left;
+}
+
+.reply {
+  text-align: left;
+  margin-bottom: 5%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+}
+
+.reply-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  color: #4a4a4a;
+  background-color: #f7f7f9;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.reply-content {
+  padding: .75rem 1.25rem;
+}
