@@ -10,6 +10,7 @@ import { SingleCategoryComponent } from './../../components/single-category/sing
 import { ThreadComponent } from './../../components/thread/thread.component';
 import { NewThreadComponent } from './../../components/new-thread/new-thread.component';
 import { MarketsComponent } from './../../components/markets/markets.component';
+import { RealTimeComponent } from './../../components/real-time/real-time.component';
 
 import { IsLoggedInGuard } from './../guards/isLoggedIn.guard';
 
@@ -25,5 +26,6 @@ export const router: Routes = [
   { path: 'thread/:threadId', component: ThreadComponent, pathMatch: 'full' },
   //{ path: 'thread/:threadId/remove', component: ThreadComponent, canActivate: [IsLoggedInGuard], pathMatch: 'full' }
   { path: 'markets', component: MarketsComponent, pathMatch: 'full' },
+  { path: 'markets/real-time', component: RealTimeComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];

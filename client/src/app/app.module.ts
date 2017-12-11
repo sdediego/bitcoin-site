@@ -18,6 +18,7 @@ import { ThreadComponent } from './components/thread/thread.component';
 import { NewThreadComponent } from './components/new-thread/new-thread.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { MarketsComponent } from './components/markets/markets.component';
+import { RealTimeComponent } from './components/real-time/real-time.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
@@ -41,9 +42,10 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     NewThreadComponent,
     VerificationComponent,
     ReplyComponent,
-    MarketsComponent
+    MarketsComponent,
+    RealTimeComponent,
     // pipes
-    CapitalizePipe,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
