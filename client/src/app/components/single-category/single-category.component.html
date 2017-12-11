@@ -17,8 +17,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let thread of threads">
-            <td><a [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a></td>
+          <tr *ngFor="let thread of threads; let even=even" [ngClass]="{ even: even }">
+            <td><a class="title" [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a></td>
             <td>{{ thread?.bitcoinPrice | currency }}</td>
             <td>{{ thread?.author.username }}</td>
             <td>{{ thread?.created_at | date }}</td>

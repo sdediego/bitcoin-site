@@ -3,17 +3,22 @@
     <div class="thread-header">
       <div class="title">
         <h3><b>{{ thread?.title }}</b></h3>
-        <span *ngIf="user && user.username == thread.author.username">
-          <i class="material-icons">clear</i>
-          <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
-        </span>
       </div>
       <h5>
         <span class="thread-author">{{ thread?.author.username }}</span> -
         <span class="thread-date">{{ thread?.created_at | date }}</span> -
         <span class="thread-bitcoin">BTC: {{ thread?.bitcoinPrice | currency }}</span>
-        <span class="thread-votes">Vote: {{ votes }}</span>
       </h5>
+      <div class="thread-vote col-2" *ngIf="user">
+        <span>Votes: {{ votes }}</span>
+        <a (click)="onAddVote()"><i class="tiny material-icons">add</i></a>
+      </div>
+      <div class="thread-remove col-2">
+        <span *ngIf="user && user?.username == thread?.author.username">
+          <i class="material-icons">clear</i>
+          <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
+        </span>
+      </div>
     </div>
     <br><br>
     <div>

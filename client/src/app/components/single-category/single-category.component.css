@@ -4,6 +4,7 @@
 
 .new-thread {
   text-align: right;
+  vertical-align: middle;
 }
 
 .new-thread a {
@@ -12,7 +13,11 @@
   color: #fff;
   border: 1px solid #fab915;
   border-radius: 5%;
-  background-color: #4a4a4a;
+  background-color: #C0C0C0;
+}
+
+.new-thread i {
+  vertical-align: middle;
 }
 
 .new-thread a:hover {
@@ -25,4 +30,24 @@
 
 .thread-list {
   margin-top: 2%;
+}
+
+thead {
+  color: #4a4a4a;
+}
+
+thead a {
+  text-decoration: none;
+}
+
+.even {
+  background-color: #E8E8E8;
+}
+
+tr:hover {
+  background-color: #fab915;
+}
+
+.title {
+  color: #4a4a4a;
 }

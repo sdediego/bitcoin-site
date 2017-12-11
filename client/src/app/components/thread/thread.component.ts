@@ -24,7 +24,7 @@ export class ThreadComponent implements OnInit {
   public threadId: string;
   public thread: IThread;
   public replies: Array<IReply>;
-  public votes: Array<IVote> | number;
+  public votes: any | number;
   public error: string;
 
   constructor(
@@ -52,7 +52,7 @@ export class ThreadComponent implements OnInit {
       response => {
         this.thread = response['thread'];
         this.replies = response['replies'];
-        this.votes = response['votes'];
+        this.votes = response['votes'] || 0;
         this.category = response['thread']['category']['category'];
       },
       error => {
@@ -78,6 +78,17 @@ export class ThreadComponent implements OnInit {
       error => {
         this.error = error.message;
         console.log(this.error);
+      });
+  }
+
+  public onAddVote(): void {
+    console.log(this.threadId);
+    this.threadService.addNewVote(this.threadId).subscribe(
+      response => {
+        this.votes++;
+      },
+      error => {
+        this.error = error.message;
       });
   }
 
