@@ -15,7 +15,7 @@
           <a [routerLink]="['/categories']"><span>Comunidad</span></a>
         </li>
         <li class="nav-bar-li">
-          <a href="http://localhost:3000/mercados"><span>Mercados</span></a>
+          <a [routerLink]="['/markets']"><span>Mercados</span></a>
         </li>
       </ul>
     </div>
@@ -24,7 +24,8 @@
         <li>
           <div class="bitcoin-real-time">
             <span class="btc-currency">BTC/USD</span>
-            <span class="btc-price">${{ btcPrice }}</span>
+            <span class="{{ isUp === true }} ? btc-price-up : btc-price-down"class="btc-price">${{ btcPrice }}</span>
+            <!--1span class="btc-price">${{ btcPrice }}</span-->
           </div>
         </li>
         <li *ngIf="!user"><a [routerLink]="['login']">Login</a></li>

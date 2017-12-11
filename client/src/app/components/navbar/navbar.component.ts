@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public user: IUser;
   public alive: boolean = true;
   public btcPrice: number;
+  public isUp: boolean;
   public interval: number;
   public error: string;
 
@@ -48,7 +49,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private getBtcPrice(): void {
     this.coindeskService.getCurrentBtcPrice().subscribe(
       response => {
-        this.btcPrice = response['bpi']['USD']['rate'].split('.')[0];
+        let price = response['bpi']['USD']['rate'].split('.')[0];
+        this.isUp = price > this.btcPrice ? true : false  || true;
+        this.btcPrice = price;
+        console.log(this.isUp, this.btcPrice);
       },
       error => {
         this.error = error.message;

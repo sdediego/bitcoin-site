@@ -17,6 +17,7 @@ import { SingleCategoryComponent } from './components/single-category/single-cat
 import { ThreadComponent } from './components/thread/thread.component';
 import { NewThreadComponent } from './components/new-thread/new-thread.component';
 import { ReplyComponent } from './components/reply/reply.component';
+import { MarketsComponent } from './components/markets/markets.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
@@ -40,8 +41,9 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     NewThreadComponent,
     VerificationComponent,
     ReplyComponent,
+    MarketsComponent
     // pipes
-    CapitalizePipe
+    CapitalizePipe,
   ],
   imports: [
     BrowserModule,
