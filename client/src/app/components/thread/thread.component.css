@@ -4,7 +4,13 @@
   width: 50%;
 }
 
-.thread-header {}
+.thread-header h5 span {
+  padding: 0 2%;
+}
+
+.title {
+  display: inline-block;
+}
 
 .thread-content {
   text-align: left;
@@ -24,6 +30,19 @@
   color: #4a4a4a;
   background-color: #f7f7f9;
   border-bottom: 1px solid rgba(0, 0, 0, .125);
+    background-color: rgba(0, 0, 0, .125);
+    position: relative;
+}
+
+.remove-reply {
+  position: absolute;
+  right: 0;
+  margin-right: 2%;
+  padding: 0 1%;
+  color: #fff;
+  border: 1px solid #fab915;
+  border-radius: 5%;
+  background-color: #4a4a4a;
 }
 
 .reply-content {

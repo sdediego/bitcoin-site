@@ -1,16 +1,22 @@
 <div class="thread">
   <div class="thread-wrap" style="text-align:center">
     <div class="thread-header">
-      <h3><b>{{ thread?.title }}</b></h3>
+      <div class="title">
+        <h3><b>{{ thread?.title }}</b></h3>
+        <span *ngIf="user && user.username == thread.author.username">
+          <i class="material-icons">clear</i>
+          <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
+        </span>
+      </div>
       <h5>
         <span class="thread-author">{{ thread?.author.username }}</span> -
         <span class="thread-date">{{ thread?.created_at | date }}</span> -
-        <span class="thread-date">BTC: {{ thread?.bitcoinPrice | currency }}</span>
+        <span class="thread-bitcoin">BTC: {{ thread?.bitcoinPrice | currency }}</span>
+        <span class="thread-votes">Vote: {{ votes }}</span>
       </h5>
-      <span *ngIf="user && user.username == thread.author.username">
-        <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
-      </span>
-      <br><br>
+    </div>
+    <br><br>
+    <div>
       <p class="thread-content">{{ thread?.content }}</p>
     </div>
     <br><br>
@@ -20,11 +26,16 @@
     <ul>
       <li *ngFor="let reply of replies">
         <div class="reply">
-          <p class="reply-header">
-            <b>{{ reply?.author.username }}</b> -
-            {{ reply?.created_at | date }}
-          </p>
-          <p class="reply-content">{{ reply?. content }}</p>
+          <div class="reply-header">
+            <i class="material-icons">comment</i>
+            <b>{{ reply?.author.username }}</b> - {{ reply?.created_at | date }}
+            <span class="remove-reply" *ngIf="user && user.username == reply.author.username">
+                <a [routerLink]="['/categories', category]" (click)="removeReply(reply.id)">
+                  <i class="material-icons">clear</i>Remove
+                </a>
+            </span>
+          </div>
+          <p class="reply-content">{{ reply?.content }}</p>
         </div>
       </li>
     </ul>

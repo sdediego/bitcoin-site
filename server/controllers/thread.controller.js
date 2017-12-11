@@ -67,7 +67,7 @@ module.exports.newThread = (req, res, next) => {
     .then(category => {
       console.log('NEW THREAD', req.body.bitcoinPrice);
       const newThread = new Thread({
-        author: "5a2c0394be56684e837c79fd",
+        author: req.user.id,
         category: category.id,
         title: req.body.title,
         content: req.body.content,

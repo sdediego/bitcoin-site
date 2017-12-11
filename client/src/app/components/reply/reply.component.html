@@ -1,7 +1,6 @@
 <div class="thread-reply">
   <form (ngSubmit)="onSubmitReply(replyForm)" #replyForm="ngForm">
       <legend>Añadir comentario</legend>
-      <p class="error" *ngIf="error">{{ error }}</p>
       <div class="input-field">
         <i class="material-icons prefix"></i>
         <textarea id="content" class="materialize-textarea" rows="10" cols="50" name="content" [(ngModel)]="reply.content" required></textarea>

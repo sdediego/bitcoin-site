@@ -54,7 +54,6 @@ export class ThreadComponent implements OnInit {
         this.replies = response['replies'];
         this.votes = response['votes'];
         this.category = response['thread']['category']['category'];
-        console.log(this.category);
       },
       error => {
         this.error = error.message;
@@ -64,8 +63,17 @@ export class ThreadComponent implements OnInit {
   public removeThread(): void {
     this.threadService.removeThread(this.threadId).subscribe(
       response => {
-        console.log(response);
         this.router.navigate(['/categories', this.category]);
+      },
+      error => {
+        this.error = error.message;
+      });
+  }
+
+  public removeReply(replyId: string): void {
+    this.threadService.removeReply(replyId).subscribe(
+      response => {
+        console.log(response);
       },
       error => {
         this.error = error.message;

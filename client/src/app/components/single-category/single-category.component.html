@@ -1,17 +1,38 @@
 <div class="container">
-  <div>
-    <a [routerLink]="['/thread/new']" [queryParams]="{'category': category}">New thread</a>
+  <div class="new-thread">
+    <a [routerLink]="['/thread/new']" [queryParams]="{'category': category}">
+      <i class="material-icons">create</i>
+      <span>New thread</span>
+    </a>
   </div>
   <div class="thread-list">
     <div class="thread-wrap">
-      <ul class="threads-inline">
+      <table>
+        <thead>
+          <tr>
+            <th>Hilo</th>
+            <th>Precio Bitcoin</th>
+            <th>Autor</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let thread of threads">
+            <td><a [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a></td>
+            <td>{{ thread?.bitcoinPrice | currency }}</td>
+            <td>{{ thread?.author.username }}</td>
+            <td>{{ thread?.created_at | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!--ul class="threads-inline">
         <li *ngFor="let thread of threads">
           <span><a [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a></span>
           <span>{{ thread?.bitcoinPrice | currency }}</span>
           <span>{{ thread?.author.username }}</span>
           <span>{{ thread?.created_at | date }}</span>
         </li>
-      </ul>
+      </ul-->
     </div>
   </div>
 </div>

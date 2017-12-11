@@ -2,24 +2,27 @@
   margin-top: 100px;
 }
 
-li {
-  width: 85%;
-  height: 100%;
-  margin: 1% auto;
-  margin-left: 5%;
-  float: left;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+.new-thread {
+  text-align: right;
 }
 
-li span {
-  display: inline-block;
-  margin-left: 0;
-  padding-left: 0;
-  width: 30%;
-  list-style-type: none;
-  align-self: left;
-  width: auto;
-  color: #8b8b8b;
+.new-thread a {
+  padding: 1%;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fab915;
+  border-radius: 5%;
+  background-color: #4a4a4a;
+}
+
+.new-thread a:hover {
+  background-color: #fab915;
+}
+
+.new-thread span {
+  vertical-align: middle;
+}
+
+.thread-list {
+  margin-top: 2%;
 }
