@@ -1,0 +1,21 @@
+.real-time {
+  position: relative;
+  margin-top: 50px;
+  padding: 6% 0;
+  width: 100%;
+  background-size: cover;
+  background-color: #000;
+  background-image: url('http://localhost:3000/images/site/background-forum.jpg');
+  color: #fff;
+}
+
+.real-time h3 {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: center;
+  color: #fab915;
+}

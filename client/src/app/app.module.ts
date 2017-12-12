@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { ChartsModule } from 'ng2-charts';
 import './shared/operators/rxjs.operator';
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { ThreadComponent } from './components/thread/thread.component';
 import { NewThreadComponent } from './components/new-thread/new-thread.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { MarketsComponent } from './components/markets/markets.component';
+import { ChartComponent } from './components/chart/chart.component';
 import { RealTimeComponent } from './components/real-time/real-time.component';
 
 import { AuthService } from './shared/services/auth.service';
@@ -43,6 +45,7 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     VerificationComponent,
     ReplyComponent,
     MarketsComponent,
+    ChartComponent,
     RealTimeComponent,
     // pipes
     CapitalizePipe
@@ -51,7 +54,8 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(router)
+    RouterModule.forRoot(router),
+    ChartsModule
   ],
   providers: [
     AuthService,

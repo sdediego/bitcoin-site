@@ -1,0 +1,16 @@
+<div>
+  <div style="display: block;">
+    <p>Chart works!</p>
+    <canvas *ngIf="printData" baseChart width="400" height="400"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType">
+    </canvas>
+  </div>
+  <div class="control-panel">
+    <button (click)="toLogScale()">Log Scale</button>
+  </div>
+</div>
