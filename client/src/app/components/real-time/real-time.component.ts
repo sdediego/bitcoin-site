@@ -24,6 +24,4 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
        document.getElementsByTagName('body')[0].appendChild(node);
        console.log('Loaded');
     }
-  }
-
 }

@@ -83,7 +83,7 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
           this.lineChartLabels = this.dates;
           console.log(this.dates);
           this.lineChartOptions = {
-            responsive: true,
+            responsive: false,
           };
           this.lineChartColors = [
             {
@@ -118,7 +118,7 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
   public lineChartData: Array<any>;
   public lineChartLabels: Array<any> = this.dates;
   public lineChartOptions: any = {
-    responsive: true,
+    responsive: false,
   };
   public lineChartColors: Array<any> = [
     {

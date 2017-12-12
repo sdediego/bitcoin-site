@@ -25,14 +25,9 @@ export class CoindeskService {
   }
 
   public getHistoricalBtcPrice(): Observable<string> {
-    //let param = null;
-    //if (dates) {
-    //  param = "?start="+dates.start_date.toISOString().substr(0,10)+"&end="+dates.end_date.toISOString().substr(0,10);
-    //}
-    //return this.http.get(`${this.baseCoindeskUrl}/historical/close.json/${param}`)
-    //let today = new Date();
-    //let interval = '?start=2012-01-01&end=' + today.toISOString().slice(0,10);
-    return this.http.get(`${this.baseCoindeskUrl}/historical/close.json`)
+    let today = new Date();
+    let interval = '?start=2011-01-01&end=' + today.toISOString().slice(0,10);
+    return this.http.get(`${this.baseCoindeskUrl}/historical/close.json${interval}`)
       .map(res => res.json())
       .catch(error => this.handleError(error));
   }
