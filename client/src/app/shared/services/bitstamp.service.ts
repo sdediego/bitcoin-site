@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Rx';
 
 
 @Injectable()
-export class CoindeskService {
+export class BitstampService {
 
-  private baseCoindeskUrl = 'https://api.coindesk.com/v1/bpi';
+  private baseBitstampUrl = 'https://www.bitstamp.net/api';
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private priceEvent: EventEmitter<any> = new EventEmitter<any>();
 
@@ -17,16 +17,14 @@ export class CoindeskService {
     return Observable.throw(error.json().message);
   }
 
-  public getCurrentBtcPrice(): Observable<string> {
-    return this.http.get(`${this.baseCoindeskUrl}/currentprice.json`)
+  public getTransactions(): Observable<object> {
+    return this.http.get(`${this.baseBitstampUrl}/transactions/?time=minute`)
       .map(res => res.json())
       .catch(error => this.handleError(error));
   }
 
-  public getHistoricalBtcPrice(): Observable<string> {
-    let today = new Date();
-    let interval = '?start=2011-01-01&end=' + today.toISOString().slice(0,10);
-    return this.http.get(`${this.baseCoindeskUrl}/historical/close.json${interval}`)
+  public getOrderBook(): Observable<object> {
+    return this.http.get(`${this.baseBitstampUrl}/order_book`)
       .map(res => res.json())
       .catch(error => this.handleError(error));
   }

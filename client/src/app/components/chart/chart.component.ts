@@ -96,6 +96,7 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
 
   public toLogScale(): void {
     if (this.isDecimal) {
+      this.graphic.chart.config.options.scales.yAxes.type = 'logarithmic';
       this.printData = this.printData.map(price => {
         return Math.log(price) > 0 ? Math.log(price) : 0;
       });
@@ -106,6 +107,7 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
 
   public toDecimalScale(): void {
     if (!this.isDecimal) {
+      this.graphic.chart.config.options.scales.yAxes.type = 'linear';
       this.printData = this.printData.map(price => {
         return Math.exp(price);
       });

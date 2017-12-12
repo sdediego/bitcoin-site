@@ -25,6 +25,7 @@ import { RealTimeComponent } from './components/real-time/real-time.component';
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
 import { CoindeskService } from './shared/services/coindesk.service';
+import { BitstampService } from './shared/services/bitstamp.service';
 
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
@@ -61,6 +62,7 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     AuthService,
     ThreadService,
     CoindeskService,
+    BitstampService,
     IsLoggedInGuard
   ],
   bootstrap: [
