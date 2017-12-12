@@ -41,7 +41,7 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
     //console.log(response[0], response[1], response[2]);
   }
 
-  public ngOnChange(): void {
+  public ngOnChanges(): void {
     this.getBtcPrice();
     //this.printData = this.btcPriceSeries;
     //console.log(this.btcPriceHist, this.btcPriceSeries, this.dates);
@@ -101,7 +101,7 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   public toLogScale() {
-    this.btcLogPriceSeries = this.btcPriceSeries.map(price => Math.log(price));
+    this.btcLogPriceSeries = this.btcPriceSeries.map(price => Math.log(price) > 0 ? Math.log(price) : 0);
     this.printData = this.btcLogPriceSeries;
     console.log(this.printData);
     this.printGraphic();

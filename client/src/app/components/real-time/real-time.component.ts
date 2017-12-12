@@ -15,6 +15,8 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
 
    }
 
+   ngAfterViewInit() {}
+
    public loadScript(url) {
        console.log('preparing to load...')
        console.log(url);
