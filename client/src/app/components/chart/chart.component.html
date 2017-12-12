@@ -11,6 +11,13 @@
     </canvas>
   </div>
   <div class="control-panel">
-    <button (click)="toLogScale()">Log Scale</button>
+    <button (click)="toLogScale()" active="{ active: active }">Escala logarítmica</button>
+    <button (click)="toDecimalScale()" active="{ active: !active }">Escala decimal</button>
+    <button (click)="toTimeInterval(30)">1 mes</button>
+    <button (click)="toTimeInterval(90)">3 meses</button>
+    <button (click)="toTimeInterval(180)">6 meses</button>
+    <button (click)="toTimeInterval(365)">1 año</button>
+    <button (click)="toTimeInterval(1095)">3 años</button>
+    <button (click)="toTimeInterval()">Todo el tiempo</button>
   </div>
 </div>

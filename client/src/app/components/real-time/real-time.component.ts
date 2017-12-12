@@ -11,9 +11,7 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
       this.loadScript("http://localhost:3000/javascripts/bitstamp.js");
   }
 
-  ngOnInit() {
-
-   }
+  ngOnInit() {}
 
    ngAfterViewInit() {}
 
