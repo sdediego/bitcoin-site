@@ -5,7 +5,7 @@
   width: 100%;
   background-size: cover;
   background-color: #000;
-  background-image: url('http://localhost:3000/images/site/background-forum.jpg');
+  background-image: url('./../../../assets/background-forum.jpg');
   color: #fff;
 }
 
