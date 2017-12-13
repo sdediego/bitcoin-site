@@ -55,7 +55,7 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    console.log('Dentro de ngAfterViewInit');
+    //console.log('Dentro de ngAfterViewInit');
     this.getTransactions().subscribe(
       response => {
         this.setWebSocket().then(result => {
@@ -112,10 +112,10 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
 
           const canvasElement2: HTMLCanvasElement = this.amountChartCanvas.nativeElement;
           this.ctx2 = canvasElement2.getContext("2d");
-          console.log(canvasElement2);
-          console.log(this.ctx2);
-          console.log('Buy orders: ', this.buffer['amount'][0]);
-          console.log('Sell orders: ', this.buffer['amount'][1]);
+          //console.log(canvasElement2);
+          //console.log(this.ctx2);
+          //console.log('Buy orders: ', this.buffer['amount'][0]);
+          //console.log('Sell orders: ', this.buffer['amount'][1]);
 
           const chartAmount = new Chart(this.ctx2, {
             type: 'bar',
@@ -188,9 +188,9 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   public getTransactions(): Observable<any> {
     return this.bitstampService.getTransactions()
       .map(response => {
-        console.log('Dentro de getTransactions', response);
+        //console.log('Dentro de getTransactions', response);
         const dataInvTime = response.reverse();
-        console.log('Inverse data: ', dataInvTime);
+        //console.log('Inverse data: ', dataInvTime);
         dataInvTime.forEach(data => {
           this.buffer['price'].push({
             x: data.date * 1000,
@@ -205,7 +205,7 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
           });
         });
 
-        console.log('Initialization: ', this.buffer);
+        //console.log('Initialization: ', this.buffer);
       })
       .catch(error => this.handleError(error));
   }
@@ -213,10 +213,10 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   private willSetWebSocket = new Promise((resolve, reject) => {
     // Create Pusher object for bitstamp web socket
     const pusher = new Pusher('de504dc5763aeef9ff52', { cluster: 'mt1' });
-    console.log('Dentro de willSetWebSocket');
+    //console.log('Dentro de willSetWebSocket');
     if (pusher) {
-      const channel = pusher.subscribe('live_trades');
-      channel.bind('trade', data => {
+      const tradesChannel = pusher.subscribe('live_trades');
+      tradesChannel.bind('trade', data => {
         this.buffer['price'].push({
           x: data.timestamp * 1000,
           y: data.price
@@ -226,8 +226,18 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
           x: data.timestamp * 1000,
           y: data.amount
         });
-        console.log('Llenando el buffer: ', this.buffer);
+        //console.log('Llenando el buffer: ', this.buffer);
       });
+
+      const bookChannel = pusher.subscribe('order_book');
+      bookChannel.bind('data', data => {
+        console.log('WEB SOCKET BOOK: ', data.bids.slice(0,10));
+        //console.log(this.buffer['book']);
+        this.buffer['book'][0].push(data.bids.slice(0,10));
+        this.buffer['book'][1].push(data.asks.slice(0,10));
+        console.log('ORDER BOOK: ', this.buffer['book'][0][0]);
+      });
+
       resolve(this.buffer);
     } else {
       const error = new Error('Web socket failed establishing connection.');
@@ -236,10 +246,10 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   });
 
   private setWebSocket = async (): Promise<any> => {
-    console.log('Dentro de setWebSocket');
+    //console.log('Dentro de setWebSocket');
     return this.willSetWebSocket
       .then(result => {
-        console.log('Promesa cumplida: ', result);
+        //console.log('Promesa cumplida: ', result);
         return result;
       })
       .catch(error => this.handleError(error));
