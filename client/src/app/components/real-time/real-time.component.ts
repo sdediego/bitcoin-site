@@ -21,7 +21,9 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
 
   //@ViewChild('baseChart') chart: BaseChartDirective;
   @ViewChild('baseChart') public priceChartCanvas: ElementRef;
+  @ViewChild('baseChart2') public amountChartCanvas: ElementRef;
   private ctx: CanvasRenderingContext2D;
+  private ctx2: CanvasRenderingContext2D;
 
   public user: IUser;
   public btcPrice: Array<number>;
@@ -30,20 +32,6 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   public error: string;
   // Buffer variables
   private buffer: object = {};
-  // Price chart variables
-  //public lineChartDataPrice: Array<any>;
-  //public lineChartLabelsPrice: Array<any>;
-  //public lineChartOptionsPrice: any;
-  //public lineChartColorsPrice: Array<any>;
-  //public lineChartLegendPrice: boolean;
-  //public lineChartTypePrice: string;
-  // Amount chart variables
-  public lineChartDataAmount: Array<any>;
-  public lineChartLabelsAmount: Array<any>;
-  public lineChartOptionsAmount: any;
-  public lineChartColorsAmount: Array<any>;
-  public lineChartLegendAmount: boolean;
-  public lineChartTypeAmount: string;
 
   constructor(
     private authService: AuthService,
@@ -71,12 +59,12 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
     this.getTransactions().subscribe(
       response => {
         this.setWebSocket().then(result => {
-          console.log('Ahora toca pintar: ', this.buffer);
-          console.log(this.priceChartCanvas);
+          //console.log('Ahora toca pintar: ', this.buffer);
+          //console.log(this.priceChartCanvas);
           const canvasElement: HTMLCanvasElement = this.priceChartCanvas.nativeElement;
           this.ctx = canvasElement.getContext("2d");
-          console.log(canvasElement);
-          console.log(this.ctx);
+          //console.log(canvasElement);
+          //console.log(this.ctx);
 
           const chartPrice = new Chart(this.ctx, {
             type: 'line',
@@ -115,50 +103,65 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
               }
             }
           });
-          //
-          //this.lineChartDataPrice = [
-          //  { data: [], label: 'Price' }
-          //];
-          ////this.lineChartLabels = this.buffer;
-          //this.lineChartOptionsPrice = {
-          //  responsive: false
-          //};
-          //this.lineChartColorsPrice = [
-          //  {
-          //    borderColor: '#fab915',
-          //    backgoundColor: '#fab915',
-          //    fill: false,
-          //    lineTension: 0,
-          //    pointRadius: 0
-          //  }
-          //];
-          //this.lineChartLegendPrice = false;
-          //this.lineChartTypePrice = 'line';
-          //
-          //// Set streaming
-          //console.log(this.chart);
-          //this.chart.options = {
-          //  responsive: false
-          //};
-          console.log('CHART', this.priceChartCanvas);
-          this.priceChartCanvas.chart.defaults.global.plugins.streaming = true;
-          this.priceChartCanvas.chart.defaults.global.plugins.streaming .duration = 300000;
-          this.priceChartCanvas.chart.defaults.global.plugins.streaming.delay = 0;
-          this.priceChartCanvas.chart.defaults.global.plugins.streaming.refresh = 1000;
-          this.priceChartCanvas.chart.defaults.global.plugins.streaming.onRefresh = () => {
-            //console.log('Dentro de Refresh');
-            Array.prototype.push.apply(
-              this.priceChartCanvas.datasets[0].data,
-              this.buffer['price']
-            );
-            this.buffer['price'] = [];
-            console.log('Data:', this.priceChartCanvas);
-          };
+
+          const canvasElement2: HTMLCanvasElement = this.amountChartCanvas.nativeElement;
+          this.ctx2 = canvasElement2.getContext("2d");
+          console.log(canvasElement2);
+          console.log(this.ctx2);
+          console.log('Buy orders: ', this.buffer['amount'][0]);
+          console.log('Sell orders: ', this.buffer['amount'][1]);
+
+          const chartAmount = new Chart(this.ctx2, {
+            type: 'line',
+            data: {
+              datasets: [{
+                data: [],
+                label: 'Buy',
+                borderColor: 'rgb(0, 255, 0)',
+                backgoundColor: 'rgb(0, 255, 0)',
+                fill: true
+              },
+              {
+                data: [],
+                label: 'Sell',
+                borderColor: 'rgb(255, 0, 0)',
+                backgoundColor: 'rgb(255, 0, 0)',
+                fill: true
+              }]
+            },
+            options: {
+              title: {
+                text: `BTC/USD - Bitstamp`,
+                display: false
+              },
+              scales: {
+                xAxes: [{
+                  type: 'realtime'
+                }]
+              },
+              plugins: {
+                streaming: {
+                  duration: 300000,
+                  onRefresh: chart => {
+                    Array.prototype.push.apply(
+                      chart.data.datasets[0].data,
+                      this.buffer['amount'][0]
+                    );
+                    Array.prototype.push.apply(
+                      chart.data.datasets[1].data,
+                      this.buffer['amount'][1]
+                    );
+                    this.buffer['amount'] = [[], []];
+                  }
+                }
+              }
+            }
+          });
 
         })
-          .catch(error => {
-            this.error = error.message;
-          });
+        .catch(error => {
+          this.error = error.message;
+        });
       },
       error => {
         this.error = error;
