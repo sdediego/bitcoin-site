@@ -77,13 +77,8 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
           };
           this.lineChartColors = [
             {
-              //backgroundColor: '#fab915',
               borderColor: '#fab915',
-              //pointBackgroundColor: 'rgba(148,159,177,1)',
               pointRadius: 0,
-              //pointBorderColor: '#fff',
-              //pointHoverBackgroundColor: '#fff',
-              //pointHoverBorderColor: 'rgba(148,159,177,0.8)'
             }
           ];
           this.lineChartLegend = false;
@@ -96,7 +91,6 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
 
   public toLogScale(): void {
     if (this.isDecimal) {
-      this.graphic.chart.config.options.scales.yAxes.type = 'logarithmic';
       this.printData = this.printData.map(price => {
         return Math.log(price) > 0 ? Math.log(price) : 0;
       });
@@ -107,7 +101,6 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
 
   public toDecimalScale(): void {
     if (!this.isDecimal) {
-      this.graphic.chart.config.options.scales.yAxes.type = 'linear';
       this.printData = this.printData.map(price => {
         return Math.exp(price);
       });
@@ -119,7 +112,6 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
   public toTimeInterval(days): void {
     let series = this.isDecimal ? this.btcPriceSeries : this.btcLogPriceSeries;
     let seriesDates = this.dates;
-    console.log(series, seriesDates);
     if (!days) {
       this.printData = series;
       this.printDates = this.dates;
@@ -130,9 +122,7 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
     this.printGraphic();
   }
 
-  public calculateMediumAverage(days) {
-
-  }
+  public calculateMediumAverage(days) {}
 
   public printGraphic() {
     this.lineChartData = [
