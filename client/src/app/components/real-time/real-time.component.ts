@@ -82,7 +82,13 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
             options: {
               title: {
                 text: `BTC/USD - Bitstamp`,
-                display: true
+                display: false
+              },
+              legend: {
+                display: false
+              },
+              tooltips: {
+                enabled: false
               },
               scales: {
                 xAxes: [{
@@ -133,6 +139,12 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
               title: {
                 text: `BTC/USD - Bitstamp`,
                 display: false
+              },
+              legend: {
+                display: false
+              },
+              tooltips: {
+                enabled: true
               },
               scales: {
                 xAxes: [{

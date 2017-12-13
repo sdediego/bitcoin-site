@@ -1,32 +1,9 @@
-<!--div class="chart-container" style="position: relative; height:300px; width:600px">
-  <canvas id="price" style="display: block; width: 540px; height: 270px;"></canvas>
+<div class="real-time">
+  <h3>Cotización en tiempo real - Bitstamp</h3>
 </div>
-<div class="chart-container" style="position: relative; height:100px; width:600px">
-  <canvas id="amount" width="100" height="50"></canvas>
-</div-->
-
-<!--div class="real-time">
-  <h3>Cotización en tiempo real</h3>
-</div-->
-<div class="priceChart" style="display: block;">
-  <canvas *ngIf="buffer" #baseChart width="1200" height="350"></canvas>
-  <canvas *ngIf="buffer" #baseChart2 width="1200" height="350"></canvas>
-  <!--canvas *ngIf="buffer" baseChart #baseChart="base-chart" width="1200" height="350"
-          [datasets]="lineChartDataPrice"
-          [labels]="lineChartLabelsPrice"
-          [options]="lineChartOptionsPrice"
-          [colors]="lineChartColorsPrice"
-          [legend]="lineChartLegendPrice"
-          [chartType]="lineChartTypePrice">
-  </canvas-->
+<div class="priceChart"  style="position: relative; height:400px; width:700px">
+  <canvas *ngIf="buffer" #baseChart></canvas>
 </div>
-<!--div class="amount" style="display: block;">
-  <canvas *ngIf="printAmount" baseChart width="1200" height="100"
-          [datasets]="lineChartDataAmount"
-          [labels]="lineChartLabelsAmount"
-          [options]="lineChartOptionsAmount"
-          [colors]="lineChartColorsAmount"
-          [legend]="lineChartLegendAmount"
-          [chartType]="lineChartTypeAmount">
-  </canvas>
-</div-->
+<div class="amountChart"  style="position: relative; height:100px; width:700px">
+  <canvas *ngIf="buffer" #baseChart2 width="700" height="150"></canvas>
+</div>
