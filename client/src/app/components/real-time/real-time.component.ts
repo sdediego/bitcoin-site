@@ -118,20 +118,23 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
           console.log('Sell orders: ', this.buffer['amount'][1]);
 
           const chartAmount = new Chart(this.ctx2, {
-            type: 'line',
+            type: 'bar',
             data: {
               datasets: [{
                 data: [],
                 label: 'Buy',
-                borderColor: 'rgb(0, 255, 0)',
                 backgoundColor: 'rgb(0, 255, 0)',
                 fill: true
               },
               {
                 data: [],
                 label: 'Sell',
-                borderColor: 'rgb(255, 0, 0)',
+                borderColor: '#ff0000',
                 backgoundColor: 'rgb(255, 0, 0)',
+                fillColor: 'rgb(255, 0, 0)',
+                strokeColor: 'rgb(255, 0, 0)',
+                highlightFill:'rgb(255, 0, 0)',
+                highlightStroke: 'rgb(255, 0, 0)',
                 fill: true
               }]
             },
@@ -148,7 +151,8 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
               },
               scales: {
                 xAxes: [{
-                  type: 'realtime'
+                  type: 'realtime',
+                  stacked: false
                 }]
               },
               plugins: {
@@ -171,9 +175,9 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
           });
 
         })
-        .catch(error => {
-          this.error = error.message;
-        });
+          .catch(error => {
+            this.error = error.message;
+          });
       },
       error => {
         this.error = error;
