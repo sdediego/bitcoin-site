@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ChartsModule } from 'ng2-charts';
+import { PushNotificationsModule } from 'ng-push';
 import './shared/operators/rxjs.operator';
 
 import { AppComponent } from './app.component';
@@ -56,7 +57,8 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     HttpModule,
     FormsModule,
     RouterModule.forRoot(router),
-    ChartsModule
+    ChartsModule,
+    PushNotificationsModule
   ],
   providers: [
     AuthService,

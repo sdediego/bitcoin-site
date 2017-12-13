@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { PushNotificationsService } from 'ng-push';
+
 import { IUser } from './../../shared/interfaces/user.interface';
 import { AuthService } from './../../shared/services/auth.service';
 
@@ -20,7 +22,11 @@ export class SignupComponent implements OnInit {
   };
   public error: string;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private pushNotification: PushNotificationsService
+  ) {}
 
   public ngOnInit(): void {}
 
@@ -30,7 +36,14 @@ export class SignupComponent implements OnInit {
         user => {
           signupForm.reset();
           this.router.navigate(['']);
-          // Push service with firebase anouncing email checking
+          // Push service anouncing email checking
+          this.pushNotification.create('VERIFICACIÓN', {
+            body: "Por favor, haz click en el enlace que hemos enviado a tu cuenta de email para activar tu cuenta.",
+            icon: "./../../../assets/bitcoin_logo.png"
+          }).subscribe(
+            response => console.log(response),
+            error => console.log(error)
+          );
         },
         error => {
           this.error = error.message;
