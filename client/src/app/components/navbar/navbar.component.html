@@ -30,7 +30,9 @@
         </li>
         <li *ngIf="!user"><a [routerLink]="['login']">Login</a></li>
         <li *ngIf="!user"><a [routerLink]="['signup']">Sign up</a></li>
-        <li *ngIf="user"><a [routerLink]="['/']" (click)="logout()">Logout</a></li>
+        <li *ngIf="user">{{ user.username }}</li>
+        <li *ngIf="user" class="logout" (click)="logout()">Logout</li>
+        <!--li *ngIf="user"><a [routerLink]="['/']" (click)="logout()">Logout</a></li-->
       </ul>
     </div>
     <!--div class="nav-bar-menu">

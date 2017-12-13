@@ -1,0 +1,427 @@
+.carousel-slider {
+  margin-top: 50px;
+  padding: 22% 0;
+}
+
+.getting-started {
+  margin: 5% auto;
+  position: relative;
+  font-weight: 500;
+  font-size: 52px !important;
+  text-align: center;
+  line-height: 42px;
+  color: #8b8b8b;
+}
+
+.getting-started img {
+  vertical-align: bottom;
+  height: 65px;
+}
+
+.subscribe {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-size: cover;
+  background-color: #fab915;
+  color: #fff;
+}
+
+.subscribe-wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.subscribe-wrap .bitcoin-image {
+  width: 45%;
+}
+
+.subscribe img {
+  margin: 10% 0;
+  margin-left: 25%;
+  width: 50%;
+  height: auto;
+}
+
+.subscribe-panel {
+  box-sizing: border-box;
+  width: 55%;
+  margin: 2% 0;
+  margin-top: 5%;
+  padding: 0;
+}
+
+.subscribe-panel .title {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: left;
+  color: #4a4a4a;
+}
+
+.subscribe-panel .paragraph {
+  box-sizing: border-box;
+  padding-right: 25%;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.subscribe-panel .subscription-form input {
+  display: inline;
+  width: 50%;
+  font-size: 20px;
+  color: #C0C0C0;;
+}
+
+.input-field input:focus+label{
+  color: #fab915;
+}
+
+::-webkit-input-placeholder {
+  color: #C0C0C0;
+  opacity: 1 !important;
+}
+
+.subscribe-panel .subscription-form button {
+  padding: 1% 3%;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fab915;
+  border-radius: 5%;
+  background-color: #C0C0C0;
+}
+
+.subscribe-panel .subscription-form button:focus {
+  border-bottom: 1px solid #fff;
+}
+
+.subscribe-panel .subscription-form button:hover {
+  background-color: #4a4a4a;
+}
+
+.inform-yourself {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-size: cover;
+  background-color: #000;
+  color: #fff;
+}
+
+.inform-yourself {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.inform-yourself-image {
+  width: 40%;
+}
+
+.inform-yourself-image img {
+  margin: 20% 0;
+  margin-left: 0%;
+  width: 65%;
+  height: auto;
+  color: #fab915;
+}
+
+.inform-yourself-panel {
+  box-sizing: border-box;
+  width: 60%;
+  margin: 10% 0;
+  margin-left: 15%;
+  padding: 0;
+}
+
+.inform-yourself-panel .title {
+  box-sizing: border-box;
+  margin: 0;
+  padding-right: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: left;
+  color: #fab915;
+}
+
+.inform-yourself-panel .paragraph {
+  box-sizing: border-box;
+  padding-right: 25%;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.choose-your-wallet {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-size: cover;
+  color: #fab915;
+}
+
+.choose-your-wallet-wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.choose-your-wallet-image {
+  width: 40%;
+}
+
+.choose-your-wallet-image img {
+  margin: 25% 0;
+  margin-left: 50%;
+  width: 50%;
+  height: auto;
+}
+
+.choose-your-wallet-image img:hover {
+  animation-name: swing;
+  animation-duration: 2000ms;
+  transform-origin: top center;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.choose-your-wallet-panel {
+  box-sizing: border-box;
+  width: 60%;
+  margin: 8% 0;
+  margin-left: 10%;
+  padding: 0;
+}
+
+.choose-your-wallet-panel .title {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: left;
+  color: #fab915;
+}
+
+.choose-your-wallet-panel .paragraph {
+  box-sizing: border-box;
+  padding-right: 25%;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #fab915;
+}
+
+.choose-your-wallet-panel .paragraph a {
+  padding-top: 5%;
+}
+
+.select-your-exchange {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-size: cover;
+  background-color: #000;
+}
+
+.select-your-exchange-wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.select-your-exchange-panel {
+  box-sizing: border-box;
+  width: 60%;
+  margin: 4% 0;
+  margin-left: 15%;
+  padding: 0;
+}
+
+.select-your-exchange-panel .title {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: left;
+  color: #fab915;
+}
+
+.select-your-exchange-panel .paragraph {
+  box-sizing: border-box;
+  padding-right: 25%;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.select-your-exchange-panel .paragraph a {
+  padding-top: 5%;
+}
+
+.select-your-exchange-image {
+  width: 40%;
+}
+
+.select-your-exchange-image img {
+  margin: 12% 0;
+  margin-bottom: 0%;
+  margin-right: 45%;
+  width: 45%;
+  height: auto;
+}
+
+.select-your-exchange-image img:hover {
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spend-your-bitcoins {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-size: cover;
+  color: #fab915;
+}
+
+.spend-your-bitcoins-wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.spend-your-bitcoins-image {
+  width: 40%;
+}
+
+.spend-your-bitcoins-image img {
+  margin: 10% 0;
+  margin-left: 25%;
+  width: 85%;
+  height: auto;
+}
+
+.spend-your-bitcoins-image img:hover {
+  animation-name: rubberBand;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.spend-your-bitcoins-panel {
+  box-sizing: border-box;
+  width: 60%;
+  margin: 3% 0;
+  margin-left: 15%;
+  padding: 0;
+}
+
+.spend-your-bitcoins-panel .title {
+  box-sizing: border-box;
+  margin: 2% 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: left;
+  color: #fab915;
+}
+
+.spend-your-bitcoins-panel .paragraph {
+  box-sizing: border-box;
+  padding-right: 25%;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #4a4a4a;
+}
+
+.spend-your-bitcoins-panel .paragraph a {
+  padding-top: 5%;
+  color: #fab915;
+}
+
+.video-section {
+  background-image: url("./../../../assets/btc_blockchain_v2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.video-section iframe {
+  width: 700px;
+  height: 455px;
+  margin: 0;
+  padding: 5%;
+}

@@ -1,4 +1,3 @@
-
 .nav-bar {
   position: fixed;
   top: 0;
@@ -74,9 +73,14 @@
 }
 
 .btc-price-up {
-    color: green;
+  color: green;
 }
 
 .btc-price-down {
   color: red;
+}
+
+.logout {
+  cursor: pointer;
+  color: #8b8b8b;
 }
