@@ -112,7 +112,6 @@ export class BitstampComponent implements OnInit, AfterViewInit {
               datasets: [{
                 data: [],
                 label: 'Buy',
-                backgoundColor: 'rgb(0, 255, 0)',
                 borderColor: 'rgb(0, 255, 0)',
                 backgoundColor: 'rgb(0, 255, 0)',
                 fillColor: 'rgb(0, 255, 0)',
@@ -124,7 +123,7 @@ export class BitstampComponent implements OnInit, AfterViewInit {
               {
                 data: [],
                 label: 'Sell',
-                borderColor: '#ff0000',
+                borderColor: 'rgb(255, 0, 0)',
                 backgoundColor: 'rgb(255, 0, 0)',
                 fillColor: 'rgb(255, 0, 0)',
                 strokeColor: 'rgb(255, 0, 0)',
