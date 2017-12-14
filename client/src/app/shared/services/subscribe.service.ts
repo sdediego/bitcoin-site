@@ -27,7 +27,7 @@ export class SubscribeService {
     console.log(JSON.stringify(email));
     console.log(this.baseUrl);
     return this.http.post(`${this.baseUrl}/subscription`, JSON.stringify(email), this.options)
-      .map((res: Response) => {{
+      .map((res: Response) => {
         console.warn(xhr.responseText);
         console.log('SUSCRIPCION RECOGIDA: ', res);
         res.json();

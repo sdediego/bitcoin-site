@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
       response => {
         console.log('PETICION ENVIADA. RESETEO FORMULARIO Y NOTIFICACION.');
         subscribeForm.reset();
+        
         // Push service anouncing email checking
         this.pushNotification.create('SUSCRIPCIÓN', {
           body: "Gracias por tu suscripción. Por favor, comprueba tu email ",
