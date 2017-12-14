@@ -1,0 +1,18 @@
+.real-time {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  width: 100%;
+  color: #fff;
+}
+
+h3 {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: center;
+  color: #fab915;
+}
