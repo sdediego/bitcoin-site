@@ -1,15 +1,7 @@
-.carousel-slider {
-  margin-top: 50px;
-  padding: 22% 0;
-}
-
-.carousel-item .first {
-  background-image: url("./../../../assets/news_slide.jpg");
-  background-size: cover;
-}
-
 .getting-started {
-  margin: 5% auto;
+  margin: 0 auto;
+  margin-top: 7%;
+  margin-bottom: 5%;
   position: relative;
   font-weight: 500;
   font-size: 52px !important;
@@ -55,7 +47,7 @@
   box-sizing: border-box;
   width: 55%;
   margin: 2% 0;
-  margin-top: 5%;
+  margin-top: 9%;
   padding: 0;
 }
 
@@ -153,7 +145,7 @@
   width: 60%;
   margin: 8% 0;
   margin-left: 15%;
-  padding: 0;
+  padding-top: 4%;
 }
 
 .inform-yourself-panel .title {
@@ -231,7 +223,8 @@
 .choose-your-wallet-panel {
   box-sizing: border-box;
   width: 60%;
-  margin: 10% 0;
+  margin-top: 12%;
+  margin-bottom: 10%;
   margin-left: 10%;
   padding: 0;
 }
@@ -284,7 +277,8 @@
 .select-your-exchange-panel {
   box-sizing: border-box;
   width: 60%;
-  margin: 8% 0;
+  margin-top: 10%;
+  margin-bottom: 8%;
   margin-left: 15%;
   padding: 0;
 }
@@ -401,7 +395,8 @@
 .spend-your-bitcoins-panel {
   box-sizing: border-box;
   width: 60%;
-  margin: 8% 0;
+  margin-top: 9%;
+  margin-bottom: 8%;
   margin-left: 15%;
   padding: 0;
 }

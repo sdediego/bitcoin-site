@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.getBtcPrice();
-    
+
     IntervalObservable.create(60 * 1000)
       .takeWhile(() => this.alive)
       .subscribe(() => {
@@ -52,7 +52,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         let price = response['bpi']['USD']['rate'].split('.')[0];
         this.isUp = price > this.btcPrice ? true : false  || true;
         this.btcPrice = price;
-        console.log(this.isUp, this.btcPrice);
       },
       error => {
         this.error = error.message;

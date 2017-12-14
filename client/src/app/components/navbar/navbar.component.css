@@ -25,7 +25,7 @@
   display: flex;
   flex-flow: row nowrap;
   align-self: flex-end;
-  color: #8b8b8b;
+  color: #f9b016;
 }
 
 .nav-bar-ul {
@@ -60,23 +60,23 @@
 .bitcoin-real-time {
   position: absolute;
   left: 50%;
-  color: #fff;
+  color: #f9b016;
 }
 
-.btc-price-up {
+./*btc-price-up {
   color: green;
 }
 
 .btc-price-down {
   color: red;
-}
+}*/
 
 .logout {
-  cursor: pointer;
   color: #8b8b8b;
 }
 
 .logout {
+    cursor: pointer;
   list-style-type: none;
   width: auto;
   font-size: 14px;

@@ -1,7 +1,6 @@
 div {
   margin: 0;
   height: 50px;
-  background: url("https://static.pexels.com/photos/1440/city-road-street-buildings.jpg") no-repeat center / contain;
   background-color: black;
   position: relative;
 }
@@ -18,5 +17,4 @@ footer {
   bottom: 0;
   left: 0;
   border-top:1px solid whitesmoke;
-  /*background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)*/
 }
