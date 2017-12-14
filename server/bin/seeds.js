@@ -6,7 +6,7 @@ const Category = require('./../models/category.model');
 const Thread = require('./../models/thread.model');
 const Reply = require('./../models/reply.model');
 
-mongoose.connect(process.env.mongoDB, { useMongoClient: true });
+mongoose.connect("mongodb://ironhacker:abecedario1234@ds135946.mlab.com:35946/bitcointrix", { useMongoClient: true });
 
 /*const users = [
   {
@@ -29,7 +29,7 @@ User.create(users, (error, docs) => {
   mongoose.connection.close();
 });*/
 
-/*const categories = [
+const categories = [
   {
     category: 'bitcoin',
     phrase: 'Un nuevo sistema financiero'
@@ -48,8 +48,6 @@ User.create(users, (error, docs) => {
   }
 ];
 
-Category.collection.drop();
-
 Category.create(categories, (error, docs) => {
   if (error) {
     throw error;
@@ -58,7 +56,7 @@ Category.create(categories, (error, docs) => {
     console.log(category.category);
   });
   mongoose.connection.close();
-});*/
+});
 
 /*const threads = [
   {

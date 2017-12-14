@@ -1,0 +1,16 @@
+<div class="subscribe">
+  <form (ngSubmit)="onSubscribe(subscribeForm)" #subscribeForm="ngForm">
+    <legend>Suscripción</legend>
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <div class="input-field">
+      <i class="material-icons prefix"></i>
+      <input id="email" type="text" name="email" [(ngModel)]="email" required>
+      <label for="email">Email</label>
+    </div>
+    <div class="button-submit">
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!subscribeForm.valid">
+        Enviar<i class="material-icons right"></i>
+      </button>
+    </div>
+  </form>
+</div>

@@ -18,7 +18,7 @@ export class SubscribeService {
   constructor(private http: Http) {}
 
   private handleError(error: Response | any): Observable<string> {
-    console.warn(xhr.responseText);
+    //console.warn(xhr.responseText);
     return Observable.throw(error.json().message);
   }
 
@@ -28,7 +28,7 @@ export class SubscribeService {
     console.log(this.baseUrl);
     return this.http.post(`${this.baseUrl}/subscription`, JSON.stringify(email), this.options)
       .map((res: Response) => {
-        console.warn(xhr.responseText);
+        //console.warn(xhr.responseText);
         console.log('SUSCRIPCION RECOGIDA: ', res);
         res.json();
       })

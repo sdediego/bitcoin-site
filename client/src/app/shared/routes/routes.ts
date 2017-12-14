@@ -5,6 +5,7 @@ import { HomeComponent } from './../../components/home/home.component';
 import { LoginComponent } from './../../components/login/login.component';
 import { SignupComponent } from './../../components/signup/signup.component';
 import { VerificationComponent } from './../../components/verification/verification.component';
+import { SubscriptionComponent } from './../../components/subscription/subscription.component';
 import { CategoriesComponent } from './../../components/categories/categories.component';
 import { SingleCategoryComponent } from './../../components/single-category/single-category.component';
 import { ThreadComponent } from './../../components/thread/thread.component';
@@ -21,6 +22,7 @@ export const router: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: 'signup', component: SignupComponent, pathMatch: 'full' },
   { path: 'verification/:token', component: VerificationComponent, pathMatch: 'full' },
+  { path: 'subscribe', component: SubscriptionComponent, pathMatch: 'full' },
   { path: 'categories', component: CategoriesComponent, pathMatch: 'full' },
   { path: 'categories/:category', component: SingleCategoryComponent, pathMatch: 'full' },
   { path: 'thread/new', component: NewThreadComponent, canActivate: [IsLoggedInGuard], pathMatch: 'full' },

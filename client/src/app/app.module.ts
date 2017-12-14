@@ -35,6 +35,7 @@ import { SubscribeService } from './shared/services/subscribe.service';
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
 import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     BitfinexComponent,
     FooterComponent,
     // pipes
-    CapitalizePipe
+    CapitalizePipe,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
