@@ -1,6 +1,5 @@
 const express = require('express');
 const authRoutes = require('./auth.routes');
-//const authSteemitRoutes = require('./authSteemit.routes');
 const userRoutes = require('./user.routes');
 const verificationRoutes = require('./verification.routes');
 const categoryRoutes = require('./category.routes');
@@ -12,7 +11,6 @@ const router  = express.Router();
 
 console.log('EN BUSCA DE LA RUTA');
 router.use('/auth', authRoutes);
-//router.use('/authSteemit', authSteemitRoutes);
 router.use('/verification', verificationRoutes);
 router.use('/user', userRoutes);
 router.use('/categories', categoryRoutes);

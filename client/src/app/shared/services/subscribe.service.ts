@@ -25,10 +25,10 @@ export class SubscribeService {
   public sendSubscritption(email): Observable<any> {
     console.log('ENVIANDO PETICION SUBSCRIPCION: ', email);
     console.log(JSON.stringify(email));
-    return this.http.post(`${this.baseUrl}/subscription`, email, this.options)
-    //return this.http.post(`${this.baseUrl}/subscription`, JSON.stringify(email), this.options)
+    console.log(this.baseUrl);
+    return this.http.post(`${this.baseUrl}/subscription`, JSON.stringify(email), this.options)
       .map((res: Response) => {{
-        console.warn(xhr.responseText); 
+        console.warn(xhr.responseText);
         console.log('SUSCRIPCION RECOGIDA: ', res);
         res.json();
       })

@@ -33,13 +33,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    //this.getBtcPrice();
-    //
-    //IntervalObservable.create(60 * 1000)
-    //  .takeWhile(() => this.alive)
-    //  .subscribe(() => {
-    //    this.getBtcPrice();
-    //  });
+    this.getBtcPrice();
+    
+    IntervalObservable.create(60 * 1000)
+      .takeWhile(() => this.alive)
+      .subscribe(() => {
+        this.getBtcPrice();
+      });
   }
 
   public ngOnDestroy(): void {

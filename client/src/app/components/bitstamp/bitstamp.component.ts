@@ -202,30 +202,25 @@ export class BitstampComponent implements OnInit, AfterViewInit {
 
   private willSetWebSocket = new Promise((resolve, reject) => {
     const pusher = new Pusher('de504dc5763aeef9ff52', { cluster: 'mt1' });
-    console.log(pusher);
+
     if (pusher) {
       const tradesChannel = pusher.subscribe('live_trades');
       tradesChannel.bind('trade', data => {
-        console.log(data);
         this.buffer['price'].push({
           x: data.timestamp * 1000,
           y: data.price
         });
-        console.log(this.buffer['price']);
+
         this.buffer['amount'][data.type].push({
           x: data.timestamp * 1000,
           y: data.amount
         });
-        console.log()
       });
 
       const bookChannel = pusher.subscribe('order_book');
       bookChannel.bind('data', data => {
-        console.log('WEB SOCKET BOOK: ', data.bids.slice(0,10));
         this.buffer['book'][0].push(data.bids.slice(0,10));
         this.buffer['book'][1].push(data.asks.slice(0,10));
-        //let book = this.buffer['book'][0];
-        //console.log('ORDER BOOK: ', this.buffer['book'][0]);
       });
 
       resolve(this.buffer);

@@ -37,8 +37,10 @@
       </div>
       <div class="subscription-form">
         <form (ngSubmit)="onSubscribe(subscribeForm)" #subscribeForm="ngForm">
-          <div class="form-element">
-            <input type="text" name="email" [(ngModel)]="email" placeholder="Email" required>
+          <div class="input-field">
+            <i class="material-icons prefix"></i>
+            <input type="text" name="email" [(ngModel)]="email" required>
+            <label for="email">Email</label>
           </div>
           <div class="form-element">
             <button type="submit" [disabled]="!subscribeForm.valid">Enviar</button>
