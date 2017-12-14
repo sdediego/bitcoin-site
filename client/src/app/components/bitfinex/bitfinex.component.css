@@ -1,0 +1,21 @@
+.real-time {
+  margin-top: -20%;
+  padding-top: -20%;
+}
+
+.title {
+  margin: 0 auto;
+  text-align: center;
+  color: #fab915;
+}
+
+canvas {
+  padding-left: 20%;
+}
+
+.priceChart {
+  margin-top: 0%;
+  margin-bottom: -18%;
+}
+
+.amountChart {}

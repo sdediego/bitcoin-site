@@ -1,4 +1,16 @@
 <div class="real-time">
+  <h3>Cotización en tiempo real</h3>
+</div>
+<div class="charts">
+  <div class="bitstamp real-time-charts">
+    <app-bitstamp></app-bitstamp>
+  </div>
+  <div class="bitfinex real-time-charts">
+    <app-bitfinex></app-bitfinex>
+  </div>
+</div>
+
+<!--div class="real-time">
   <h3>Cotización en tiempo real - Bitstamp</h3>
 </div>
 <div>
@@ -11,7 +23,7 @@
     </div>
   </div>
   <div class="order-book">
-    <!--table *ngIf="buffer">
+    <table *ngIf="buffer['book']">
       <thead>
         <tr>
           <th colspan="2">Order book</th>
@@ -23,11 +35,11 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{  }}</td>
-          <td>{{ buffer['book'][1] }}</td>
-          <td>{{ thread?.created_at | date }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
-  </div-->
-</div>
+  </div>
+</div-->

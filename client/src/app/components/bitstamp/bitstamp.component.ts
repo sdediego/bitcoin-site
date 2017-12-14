@@ -13,13 +13,12 @@ import { BitstampService } from './../../shared/services/bitstamp.service';
 
 
 @Component({
-  selector: 'app-real-time',
-  templateUrl: './real-time.component.html',
-  styleUrls: ['./real-time.component.css']
+  selector: 'app-bitstamp',
+  templateUrl: './bitstamp.component.html',
+  styleUrls: ['./bitstamp.component.css']
 })
-export class RealTimeComponent implements OnInit, AfterViewInit {
+export class BitstampComponent implements OnInit, AfterViewInit {
 
-  //@ViewChild('baseChart') chart: BaseChartDirective;
   @ViewChild('baseChart') public priceChartCanvas: ElementRef;
   @ViewChild('baseChart2') public amountChartCanvas: ElementRef;
   private ctx: CanvasRenderingContext2D;
@@ -108,12 +107,18 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
           const canvasElement2: HTMLCanvasElement = this.amountChartCanvas.nativeElement;
           this.ctx2 = canvasElement2.getContext("2d");
           const chartAmount = new Chart(this.ctx2, {
-            type: 'bar',
+            type: 'scatter',
             data: {
               datasets: [{
                 data: [],
                 label: 'Buy',
                 backgoundColor: 'rgb(0, 255, 0)',
+                borderColor: 'rgb(0, 255, 0)',
+                backgoundColor: 'rgb(0, 255, 0)',
+                fillColor: 'rgb(0, 255, 0)',
+                strokeColor: 'rgb(0, 255, 0)',
+                highlightFill:'rgb(0, 255, 0)',
+                highlightStroke: 'rgb(0, 255, 0)',
                 fill: true
               },
               {

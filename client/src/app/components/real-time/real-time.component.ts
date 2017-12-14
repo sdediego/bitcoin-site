@@ -1,4 +1,19 @@
-declare var Chart: any;
+import { Component, OnInit } from '@angular/core';
+
+
+@Component({
+  selector: 'app-real-time',
+  templateUrl: './real-time.component.html',
+  styleUrls: ['./real-time.component.css']
+})
+export class RealTimeComponent implements OnInit {
+
+  constructor() {}
+
+  ngOnInit() {}
+
+}
+/*declare var Chart: any;
 
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
@@ -30,8 +45,9 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   public btcAmount: Array<number>;
   public timestamp: Array<any>;
   public error: string;
-  // Buffer variables
-  private buffer: object = {};
+  public buffer: object = {};
+  public bids: Array<object> = [];
+  public asks: Array<object> = [];
 
   constructor(
     private authService: AuthService,
@@ -55,17 +71,11 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    //console.log('Dentro de ngAfterViewInit');
     this.getTransactions().subscribe(
       response => {
         this.setWebSocket().then(result => {
-          //console.log('Ahora toca pintar: ', this.buffer);
-          //console.log(this.priceChartCanvas);
           const canvasElement: HTMLCanvasElement = this.priceChartCanvas.nativeElement;
           this.ctx = canvasElement.getContext("2d");
-          //console.log(canvasElement);
-          //console.log(this.ctx);
-
           const chartPrice = new Chart(this.ctx, {
             type: 'line',
             data: {
@@ -112,11 +122,6 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
 
           const canvasElement2: HTMLCanvasElement = this.amountChartCanvas.nativeElement;
           this.ctx2 = canvasElement2.getContext("2d");
-          //console.log(canvasElement2);
-          //console.log(this.ctx2);
-          //console.log('Buy orders: ', this.buffer['amount'][0]);
-          //console.log('Sell orders: ', this.buffer['amount'][1]);
-
           const chartAmount = new Chart(this.ctx2, {
             type: 'bar',
             data: {
@@ -173,11 +178,10 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
               }
             }
           });
-
         })
-          .catch(error => {
-            this.error = error.message;
-          });
+        .catch(error => {
+          this.error = error.message;
+        });
       },
       error => {
         this.error = error;
@@ -188,9 +192,7 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   public getTransactions(): Observable<any> {
     return this.bitstampService.getTransactions()
       .map(response => {
-        //console.log('Dentro de getTransactions', response);
         const dataInvTime = response.reverse();
-        //console.log('Inverse data: ', dataInvTime);
         dataInvTime.forEach(data => {
           this.buffer['price'].push({
             x: data.date * 1000,
@@ -204,38 +206,36 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
             y: data.amount
           });
         });
-
-        //console.log('Initialization: ', this.buffer);
       })
       .catch(error => this.handleError(error));
   }
 
   private willSetWebSocket = new Promise((resolve, reject) => {
-    // Create Pusher object for bitstamp web socket
     const pusher = new Pusher('de504dc5763aeef9ff52', { cluster: 'mt1' });
-    //console.log('Dentro de willSetWebSocket');
+    console.log(pusher);
     if (pusher) {
       const tradesChannel = pusher.subscribe('live_trades');
       tradesChannel.bind('trade', data => {
+        console.log(data);
         this.buffer['price'].push({
           x: data.timestamp * 1000,
           y: data.price
         });
-        //console.log(buffer['price']);
+        console.log(this.buffer['price']);
         this.buffer['amount'][data.type].push({
           x: data.timestamp * 1000,
           y: data.amount
         });
-        //console.log('Llenando el buffer: ', this.buffer);
+        console.log()
       });
 
       const bookChannel = pusher.subscribe('order_book');
       bookChannel.bind('data', data => {
         console.log('WEB SOCKET BOOK: ', data.bids.slice(0,10));
-        //console.log(this.buffer['book']);
         this.buffer['book'][0].push(data.bids.slice(0,10));
         this.buffer['book'][1].push(data.asks.slice(0,10));
-        console.log('ORDER BOOK: ', this.buffer['book'][0][0]);
+        //let book = this.buffer['book'][0];
+        //console.log('ORDER BOOK: ', this.buffer['book'][0]);
       });
 
       resolve(this.buffer);
@@ -246,13 +246,11 @@ export class RealTimeComponent implements OnInit, AfterViewInit {
   });
 
   private setWebSocket = async (): Promise<any> => {
-    //console.log('Dentro de setWebSocket');
     return this.willSetWebSocket
       .then(result => {
-        //console.log('Promesa cumplida: ', result);
         return result;
       })
       .catch(error => this.handleError(error));
   }
 
-}
+}*/

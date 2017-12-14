@@ -16,3 +16,12 @@ h3 {
   text-align: center;
   color: #fab915;
 }
+
+.charts {
+  margin: 0 auto;
+}
+
+.real-time-charts {
+  display: inline-block;
+  width: 45%;
+}

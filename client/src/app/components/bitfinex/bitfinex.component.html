@@ -1,3 +1,13 @@
-<p>
-  bitfinex works!
-</p>
+<div class="real-time">
+  <div class="title">
+    <h5>Bitfinex</h5>
+  </div>
+  <div>
+    <div class="priceChart" style="position: relative; height:400px; width:600px">
+      <canvas *ngIf="buffer" #baseChart></canvas>
+    </div>
+    <div class="amountChart" style="position: relative; height:100px; width:600px">
+      <canvas *ngIf="buffer" #baseChart2 width="700" height="150"></canvas>
+    </div>
+  </div>
+</div>

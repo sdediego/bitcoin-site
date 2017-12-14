@@ -36,12 +36,12 @@
         </p>
       </div>
       <div class="subscription-form">
-        <form action="" method="post">
+        <form (ngSubmit)="onSubscribe(subscribeForm)" #subscribeForm="ngForm">
           <div class="form-element">
-            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="email" [(ngModel)]="email" placeholder="Email" required>
           </div>
           <div class="form-element">
-            <button type="submit">Enviar</button>
+            <button type="submit" [disabled]="!subscribeForm.valid">Enviar</button>
           </div>
         </form>
       </div>

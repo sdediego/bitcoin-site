@@ -18,11 +18,6 @@ module.exports.mailOptions = (req, user, token) => {
           ${process.env.domainUrl}\/verification\/${token.token}\n\n
           Saludos cordiales,\n
           Bitcointrix.`
-    /*text: `Hello ${user.username},\n\n
-          Please verify your account by clicking the following link:\n
-          http:\/\/${req.headers.host}\/api\/verification\/${token.token}\n\n
-          kind regards,\n
-          Bitcoin bitacora team.`*/
   }
 };
 
@@ -32,6 +27,14 @@ module.exports.subscribeOptions = (email) => {
     to: email,
     subject: 'Introducción a Bitcoin - Bitcointrix',
     text: `Hola ironhacker,\n\n
-          .`
+          .Gracias por suscribirte al servicio de mailing de Bitcointrix.\n
+          Adjunto encontrarás el paper.\n\n
+          Saludos cordiales,\n
+          El equipo de Bitcointrix.`
+    //attachments: [
+    //  {
+    //    path: 'file:///home/sergio/Descargas/exampleSecondProyect.pdf'
+    //  }
+    //]
   }
 };

@@ -22,13 +22,15 @@ import { ReplyComponent } from './components/reply/reply.component';
 import { MarketsComponent } from './components/markets/markets.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { RealTimeComponent } from './components/real-time/real-time.component';
+import { BitstampComponent } from './components/bitstamp/bitstamp.component';
+import { BitfinexComponent } from './components/bitfinex/bitfinex.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { ThreadService } from './shared/services/thread.service';
 import { CoindeskService } from './shared/services/coindesk.service';
 import { BitstampService } from './shared/services/bitstamp.service';
-import { SubscribeService } from './shared/services/bitstamp.service';
+import { SubscribeService } from './shared/services/subscribe.service';
 
 import { IsLoggedInGuard } from './shared/guards/isLoggedIn.guard';
 import { router } from './shared/routes/routes';
@@ -51,6 +53,8 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     MarketsComponent,
     ChartComponent,
     RealTimeComponent,
+    BitstampComponent,
+    BitfinexComponent,
     FooterComponent,
     // pipes
     CapitalizePipe

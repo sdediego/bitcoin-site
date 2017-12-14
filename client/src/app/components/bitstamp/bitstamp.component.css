@@ -1,18 +1,21 @@
 .real-time {
-  position: relative;
-  margin-top: 100px;
-  margin-bottom: 20px;
-  width: 100%;
-  color: #fff;
+  margin-top: -20%;
+  padding-top: -20%;
 }
 
-h3 {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 36px;
+.title {
+  margin: 0 auto;
   text-align: center;
   color: #fab915;
 }
+
+canvas {
+  padding-left: 20%;
+}
+
+.priceChart {
+  margin-top: 0%;
+  margin-bottom: -18%;
+}
+
+.amountChart {}
