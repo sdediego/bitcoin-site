@@ -3,6 +3,11 @@
   padding: 22% 0;
 }
 
+.carousel-item .first {
+  background-image: url("./../../../assets/news_slide.jpg");
+  background-size: cover;
+}
+
 .getting-started {
   margin: 5% auto;
   position: relative;
@@ -77,10 +82,11 @@
   display: inline;
   width: 50%;
   font-size: 20px;
-  color: #C0C0C0;;
+  color: #C0C0C0;
+  ;
 }
 
-.input-field input:focus+label{
+.input-field input:focus+label {
   color: #fab915;
 }
 
@@ -114,6 +120,12 @@
   background-size: cover;
   background-color: #000;
   color: #fff;
+  background-image: url("./../../../assets/btc_inform_v2.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .inform-yourself {
@@ -138,7 +150,7 @@
 .inform-yourself-panel {
   box-sizing: border-box;
   width: 60%;
-  margin: 10% 0;
+  margin: 8% 0;
   margin-left: 15%;
   padding: 0;
 }
@@ -218,7 +230,7 @@
 .choose-your-wallet-panel {
   box-sizing: border-box;
   width: 60%;
-  margin: 8% 0;
+  margin: 10% 0;
   margin-left: 10%;
   padding: 0;
 }
@@ -253,6 +265,12 @@
   width: 100%;
   background-size: cover;
   background-color: #000;
+  background-image: url("./../../../assets/office.jpg");
+  height: 450px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .select-your-exchange-wrap {
@@ -265,7 +283,7 @@
 .select-your-exchange-panel {
   box-sizing: border-box;
   width: 60%;
-  margin: 4% 0;
+  margin: 8% 0;
   margin-left: 15%;
   padding: 0;
 }
@@ -298,7 +316,7 @@
 }
 
 .select-your-exchange-image img {
-  margin: 12% 0;
+  margin: 25% 0;
   margin-bottom: 0%;
   margin-right: 45%;
   width: 45%;
@@ -342,7 +360,7 @@
 }
 
 .spend-your-bitcoins-image img {
-  margin: 10% 0;
+  margin: 25% 0;
   margin-left: 25%;
   width: 85%;
   height: auto;
@@ -382,7 +400,7 @@
 .spend-your-bitcoins-panel {
   box-sizing: border-box;
   width: 60%;
-  margin: 3% 0;
+  margin: 8% 0;
   margin-left: 15%;
   padding: 0;
 }
@@ -412,16 +430,45 @@
 }
 
 .video-section {
-  background-image: url("./../../../assets/btc_blockchain_v2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
   margin: 0;
   padding: 0;
+  background-image: url("./../../../assets/btc_blockchain_v2.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.video-section-wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.video-section .title {
+  position: absolute;
+  top: 40%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  text-align: left;
+  color: #fab915;
+}
+
+.video-section .bitcoin-introduction-video {
+  margin-top: 4%;
+  width: 50%;
 }
 
 .video-section iframe {
   width: 700px;
-  height: 455px;
+  height: 410px;
   margin: 0;
-  padding: 5%;
+  padding: 3%;
 }
