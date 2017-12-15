@@ -11,8 +11,8 @@ import { environment } from './../../../environments/environment';
 export class AuthService {
 
   private user: IUser;
-  private baseAuthUrl = `${environment.apiUrl}/auth`;
-  private baseVerifyUrl = `${environment.apiUrl}/verification`;
+  private baseAuthUrl = `${environment.apiUrl}/api/auth`;
+  private baseVerifyUrl = `${environment.apiUrl}/api/verification`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
   private loginEvent: EventEmitter<any> = new EventEmitter<any>();

@@ -15,7 +15,7 @@ import { environment } from './../../../environments/environment';
 export class ThreadService {
 
   private user: IUser;
-  private baseUrl = `${environment.apiUrl}`;
+  private baseUrl = `${environment.apiUrl}/api`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
   private replyEvent: EventEmitter<any> = new EventEmitter<any>();
