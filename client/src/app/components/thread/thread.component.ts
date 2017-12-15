@@ -77,12 +77,10 @@ export class ThreadComponent implements OnInit {
       },
       error => {
         this.error = error.message;
-        console.log(this.error);
       });
   }
 
   public onAddVote(): void {
-    console.log(this.threadId);
     this.threadService.addNewVote(this.threadId).subscribe(
       response => {
         this.votes++;

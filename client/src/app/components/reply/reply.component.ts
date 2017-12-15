@@ -39,11 +39,9 @@ export class ReplyComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.threadId = params['threadId'];
     });
-    console.log(this.reply, this.threadId);
   }
 
   public onSubmitReply(replyForm: NgForm): void {
-    console.log(this.reply, this.threadId);
     this.threadService.postNewReply(this.reply, this.threadId).subscribe(
       response => {
         replyForm.reset();

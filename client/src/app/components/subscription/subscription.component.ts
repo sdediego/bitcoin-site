@@ -32,7 +32,6 @@ export class SubscriptionComponent implements OnInit {
   public onSubscribe(subscribeForm: NgForm): void {
     this.subscribeService.sendSubscritption(this.email).subscribe(
       response => {
-        console.log('PETICION ENVIADA. RESETEO FORMULARIO Y NOTIFICACION.');
         subscribeForm.reset();
         this.router.navigate(['']);
         // Push service anouncing email checking
@@ -45,7 +44,6 @@ export class SubscriptionComponent implements OnInit {
         );
       },
       error => {
-        console.log(error);
         this.error = error;
       }
     )

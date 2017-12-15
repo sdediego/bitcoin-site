@@ -174,7 +174,6 @@ export class BitstampComponent implements OnInit, AfterViewInit {
       },
       error => {
         this.error = error;
-        console.log(this.error);
       });
   }
 

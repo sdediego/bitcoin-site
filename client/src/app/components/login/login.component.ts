@@ -24,31 +24,10 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {
-    //this.user = this.authService.getUser();
-    //this.authService.getLoginEventEmitter().subscribe(user => {
-    //  this.user = user;
-    //});
-  }
+  ) {}
 
   public ngOnInit(): void {
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
-    console.log(this.returnUrl);
-    //steemconnect.init({
-    //  baseURL: 'https://steemconnect.com',
-    //  app:'bitcoin-bitacora',
-    //  callbackURL: 'http://localhost:4200'
-    //});
-    //
-    //this.urlSteemit = steemconnect.getLoginURL();
-    //
-    //steemconnect.isAuthenticated((error, result) => {
-    //  if (error) {
-    //    this.error = error;
-    //  } else {
-    //    console.log(`Logged in as: ${result}`);
-    //  }
-    //});
   }
 
   public onSubmitLogin(loginForm: NgForm): void {

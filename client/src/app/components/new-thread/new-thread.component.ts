@@ -52,7 +52,6 @@ export class NewThreadComponent implements OnInit {
     this.coindeskService.getCurrentBtcPrice().subscribe(
       response => {
         this.thread['bitcoinPrice'] = parseInt(response['bpi']['USD']['rate_float']);
-        console.log(this.thread);
       },
       error => {
         this.error = error.message;
