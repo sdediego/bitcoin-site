@@ -9,6 +9,11 @@
   color: #fab915;
 }
 
+h5 {
+  margin: 0 auto;
+  text-align: center;
+}
+
 canvas {
   padding-left: 20%;
 }

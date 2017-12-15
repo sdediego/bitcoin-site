@@ -80,6 +80,13 @@ export class BitfinexComponent implements OnInit, AfterViewInit {
           scales: {
             xAxes: [{
               type: 'realtime'
+            }],
+            yAxes: [{
+              ticks: {
+                callback: (value, index, values) => {
+                  return '$' + value;
+                }
+              }
             }]
           },
           plugins: {
@@ -105,23 +112,23 @@ export class BitfinexComponent implements OnInit, AfterViewInit {
           datasets: [{
             data: [],
             label: 'Buy',
-            borderColor: 'rgb(0, 255, 0)',
-            backgoundColor: 'rgb(0, 255, 0)',
-            fillColor: 'rgb(0, 255, 0)',
-            strokeColor: 'rgb(0, 255, 0)',
-            highlightFill: 'rgb(0, 255, 0)',
-            highlightStroke: 'rgb(0, 255, 0)',
+            borderColor: '#009933',
+            backgoundColor: '#009933',
+            fillColor: '#009933',
+            strokeColor: '#009933',
+            highlightFill: '#009933',
+            highlightStroke: '#009933',
             fill: true
           },
           {
             data: [],
             label: 'Sell',
-            borderColor: 'rgb(255, 0, 0)',
-            backgoundColor: 'rgb(255, 0, 0)',
-            fillColor: 'rgb(255, 0, 0)',
-            strokeColor: 'rgb(255, 0, 0)',
-            highlightFill: 'rgb(255, 0, 0)',
-            highlightStroke: 'rgb(255, 0, 0)',
+            borderColor: '#ff3300',
+            backgoundColor: '#ff3300',
+            fillColor: '#ff3300',
+            strokeColor: '#ff3300',
+            highlightFill: '#ff3300',
+            highlightStroke: '#ff3300',
             fill: true
           }]
         },
