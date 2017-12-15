@@ -27,7 +27,6 @@ export const router: Routes = [
   { path: 'categories/:category', component: SingleCategoryComponent, pathMatch: 'full' },
   { path: 'thread/new', component: NewThreadComponent, canActivate: [IsLoggedInGuard], pathMatch: 'full' },
   { path: 'thread/:threadId', component: ThreadComponent, pathMatch: 'full' },
-  //{ path: 'thread/:threadId/remove', component: ThreadComponent, canActivate: [IsLoggedInGuard], pathMatch: 'full' }
   { path: 'markets', component: MarketsComponent, pathMatch: 'full' },
   { path: 'markets/statistics', component: ChartComponent, pathMatch: 'full' },
   { path: 'markets/real-time', component: RealTimeComponent, pathMatch: 'full' },
