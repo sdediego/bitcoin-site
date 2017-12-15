@@ -8,7 +8,7 @@ const Reply = require('./../models/reply.model');
 
 mongoose.connect("mongodb://ironhacker:abecedario1234@ds135946.mlab.com:35946/bitcointrix", { useMongoClient: true });
 
-/*const users = [
+const users = [
   {
     username: 'sdediego',
     email: JSON.parse(process.env.emailSeeds)[0],
@@ -27,7 +27,7 @@ User.create(users, (error, docs) => {
     console.log(user.username);
   });
   mongoose.connection.close();
-});*/
+});
 
 const categories = [
   {
@@ -58,7 +58,7 @@ Category.create(categories, (error, docs) => {
   mongoose.connection.close();
 });
 
-/*const threads = [
+const threads = [
   {
     author: '5a286fad8cb602300171fca6',
     category: '5a2885f4cbb1144991a38090',
@@ -101,9 +101,9 @@ Thread.create(threads, (error, docs) => {
     console.log(thread._id);
   });
   mongoose.connection.close();
-});*/
+});
 
-/*const replies = [
+const replies = [
   {
     author: '5a286f9cf6cb8230b24ac989',
     thread: '5a292e23b61e892cc3ee668f',
@@ -141,4 +141,4 @@ Reply.create(replies, (error, docs) => {
     console.log(replies._id);
   });
   mongoose.connection.close();
-});*/
+});

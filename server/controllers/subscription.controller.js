@@ -3,8 +3,8 @@ const nodemailerConfig = require('./../config/nodemailer.config');
 
 
 module.exports.send = (req, res, next) => {
-  console.log('DENTRO DE SEND', req.body.email);
   const email = req.body.email;
+  
   const transporter = nodemailer.createTransport(nodemailerConfig.transporter);
   const mailOptions = nodemailerConfig.subscribeOptions(email);
 

@@ -30,11 +30,11 @@ module.exports.subscribeOptions = (email) => {
           .Gracias por suscribirte al servicio de mailing de Bitcointrix.\n
           Adjunto encontrarás el paper.\n\n
           Saludos cordiales,\n
-          El equipo de Bitcointrix.`
-    //attachments: [
-    //  {
-    //    path: 'file:///home/sergio/Descargas/exampleSecondProyect.pdf'
-    //  }
-    //]
+          El equipo de Bitcointrix.`,
+    attachments: [
+      {
+        path: 'file:///home/sergio/Descargas/exampleSecondProyect.pdf'
+      }
+    ]
   }
 };

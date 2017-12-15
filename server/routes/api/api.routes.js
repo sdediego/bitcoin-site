@@ -9,7 +9,7 @@ const voteRoutes = require('./vote.routes');
 const subscriptionRoutes = require('./subscription.routes');
 const router  = express.Router();
 
-console.log('EN BUSCA DE LA RUTA');
+
 router.use('/auth', authRoutes);
 router.use('/verification', verificationRoutes);
 router.use('/user', userRoutes);

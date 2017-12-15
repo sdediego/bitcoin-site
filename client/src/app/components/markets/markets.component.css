@@ -6,7 +6,6 @@
   background-size: cover;
   background-color: #000;
   background-image: url('./../../../assets/background-forum.jpg');
-  color: #fff;
 }
 
 .markets h3 {
@@ -26,7 +25,7 @@
   padding: 0;
   width: 100%;
   background-size: cover;
-  background-color: #000;
+  background-color: #fab915;
 }
 
 .bitcoin-stats-wrap {
@@ -52,7 +51,7 @@
   font-style: normal;
   font-size: 20px;
   text-align: left;
-  color: #fab915;
+  color: #8b8b8b;
 }
 
 .bitcoin-stats-panel .paragraph {
@@ -76,14 +75,10 @@
   left: 0;
   text-decoration: none;
   padding: 5% 8%;
-  color: #fff;
-  border: 1px solid #fab915;
+  color: #8b8b8b;
+  border: 2px solid #8b8b8b;
   border-radius: 3px;
-  background-color: #8b8b8b;
-}
-
-.bitcoin-stats-image a:hover {
-  background-color: #fab915;
+  background-color: #fff;
 }
 
 .markets-real-time {
@@ -92,7 +87,7 @@
   padding: 0;
   width: 100%;
   background-size: cover;
-  background-color: #8b8b8b;
+  background-color: #fff;
 }
 
 .markets-real-time-wrap {
@@ -126,7 +121,7 @@
   padding: 0 20%;
   font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
   font-size: 18px;
-  color: #fff;
+  color: #8b8b8b;
 }
 
 .markets-real-time-image {
@@ -139,11 +134,7 @@
   text-decoration: none;
   padding: 7% 11%;
   color: #fff;
-  border: 1px solid #fab915;
+  border: 2px solid #8b8b8b;
   border-radius: 3px;
-  background-color: #8b8b8b;
-}
-
-.markets-real-time-image a:hover {
-  background-color:#fab915;
+  background-color: #fab915;
 }

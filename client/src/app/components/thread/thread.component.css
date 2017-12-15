@@ -55,12 +55,7 @@
   color: #ff3333;
 }
 
-.thread-remove i {
-  vertical-align: middle;
-  color: #ff3333;
-}
-
-.thread-remove i:hover, .thread-remove a:hover {
+.thread-remove a:hover {
   color: #fff;
 }
 
@@ -68,9 +63,13 @@
   text-align: left;
 }
 
+.replies-list {
+  margin-top: 10%;
+}
+
 .reply {
   text-align: left;
-  margin-bottom: 5%;
+  margin: 8% 0;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: .25rem;
@@ -88,17 +87,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, .125);
   background-color: rgba(0, 0, 0, .125);
   position: relative;
-}
-
-.remove-reply {
-  position: absolute;
-  right: 0;
-  margin-right: 2%;
-  padding: 0 1%;
-  color: #fff;
-  border: 1px solid #fab915;
-  border-radius: 5%;
-  background-color: #4a4a4a;
 }
 
 .reply-content {

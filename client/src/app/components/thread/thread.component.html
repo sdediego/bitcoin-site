@@ -15,8 +15,7 @@
       </div>
       <div class="thread-remove col-2">
         <span *ngIf="user && user?.username == thread?.author.username">
-          <i class="material-icons">clear</i>
-          <a [routerLink]="['/categories', category]" (click)="removeThread()">Remove</a>
+          <a [routerLink]="['/categories']" (click)="removeThread()">Remove</a>
         </span>
       </div>
     </div>
@@ -28,17 +27,12 @@
     <div *ngIf="user">
       <app-reply></app-reply>
     </div>
-    <ul>
+    <ul class="replies-list">
       <li *ngFor="let reply of replies">
         <div class="reply">
           <div class="reply-header">
             <i class="material-icons">comment</i>
             <b>{{ reply?.author.username }}</b> - {{ reply?.created_at | date }}
-            <span class="remove-reply" *ngIf="user && user.username == reply.author.username">
-                <a [routerLink]="['/categories', category]" (click)="removeReply(reply.id)">
-                  <i class="material-icons">clear</i>Remove
-                </a>
-            </span>
           </div>
           <p class="reply-content">{{ reply?.content }}</p>
         </div>

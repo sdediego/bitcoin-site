@@ -44,7 +44,7 @@ thead a {
   background-color: #E8E8E8;
 }
 
-tr:hover {
+tbody tr:hover {
   background-color: #fab915;
 }
 

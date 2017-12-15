@@ -2,7 +2,6 @@ const Thread = require('./../models/thread.model');
 const Reply = require('./../models/reply.model');
 
 module.exports.reply = (req, res, next) => {
-  console.log('Dentro de Reply');
 
   const newReply = new Reply({
     author: req.user.id,
@@ -20,7 +19,6 @@ module.exports.reply = (req, res, next) => {
       return;
     })
     .catch(error => {
-      console.log('Unable to save new reply.', error);
       res.status(500).json({ msg: 'Unable to save new reply.' });
       return;
     });

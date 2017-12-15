@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let thread of threads; let even=even" [ngClass]="{ even: even }">
+          <tr class="single-thread" *ngFor="let thread of threads; let even=even" [ngClass]="{ even: even }">
             <td><a class="title" [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a></td>
             <td>{{ thread?.bitcoinPrice | currency }}</td>
             <td>{{ thread?.author.username }}</td>
@@ -25,14 +25,6 @@
           </tr>
         </tbody>
       </table>
-      <!--ul class="threads-inline">
-        <li *ngFor="let thread of threads">
-          <span><a [routerLink]="['/thread', thread.id]">{{ thread?.title }}</a></span>
-          <span>{{ thread?.bitcoinPrice | currency }}</span>
-          <span>{{ thread?.author.username }}</span>
-          <span>{{ thread?.created_at | date }}</span>
-        </li>
-      </ul-->
     </div>
   </div>
 </div>
