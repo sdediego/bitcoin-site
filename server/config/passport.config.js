@@ -26,10 +26,8 @@ module.exports.setup = (passport) => {
           return;
         } else {
           if (!user.checkPassword(password)) {
-            console.log('Bad password');
             next(null, false, { message: 'Incorrect password:' + password });
           }
-          console.log('Good password');
           next(null, user);
         }
       })
