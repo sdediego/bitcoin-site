@@ -65,7 +65,6 @@ module.exports.newThread = (req, res, next) => {
 
   Category.findOne({ category: req.params.category })
     .then(category => {
-      console.log('NEW THREAD', req.body.bitcoinPrice);
       const newThread = new Thread({
         author: req.user.id,
         category: category.id,
