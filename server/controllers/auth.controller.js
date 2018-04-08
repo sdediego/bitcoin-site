@@ -73,7 +73,6 @@ module.exports.login = (req, res, next) => {
   User.findOne({ username })
     .then(user => {
       if (!user) {
-        console.log(user);
         res.status(401).json({ msg: 'Username not found.' });
         return;
       }
